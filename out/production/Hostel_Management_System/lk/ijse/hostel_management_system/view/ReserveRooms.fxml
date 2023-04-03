@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="941.0" prefWidth="1701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.ReserveRoomsController">
+   <children>
+      <ImageView fitHeight="956.0" fitWidth="1701.0" layoutY="-14.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/Capture.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="557.0" layoutY="28.0" prefHeight="77.0" prefWidth="656.0" text="  THE ROOMS RESERVATION" textFill="#251c6f">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="77.0" fitWidth="85.0" layoutX="490.0" layoutY="28.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/reserve.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="179.0" fitWidth="157.0" layoutX="1544.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/pngwing.com%20(12).png" />
+         </image>
+      </ImageView>
+      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="105.0" layoutY="190.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#a81e1e" />
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="361.0" layoutY="197.0" prefHeight="31.0" prefWidth="234.0" promptText="Student Name" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="670.0" layoutY="194.0" prefHeight="37.0" prefWidth="234.0" promptText="Student Address" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="979.0" layoutY="194.0" prefHeight="37.0" prefWidth="197.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1251.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="1650.0" layoutY="197.0" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: Yellow;" text="+" />
+      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="105.0" layoutY="292.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Type Id" unFocusColor="#a81e1e" />
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="361.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Room Type" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="670.0" layoutY="295.0" prefHeight="37.0" prefWidth="234.0" promptText="Rooms Availability" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="979.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Key Money Monthly[LKR]" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Separator layoutX="1213.0" layoutY="295.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1251.0" layoutY="292.0" prefHeight="37.0" prefWidth="146.0" promptText="Paid Amount" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="1540.0" layoutY="372.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
+      <DatePicker layoutX="1469.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
+      <TableView layoutX="105.0" layoutY="479.0" prefHeight="396.0" prefWidth="1581.0">
+        <columns>
+          <TableColumn prefWidth="130.0" text="Room ID" />
+          <TableColumn prefWidth="229.0" text="Room Type" />
+            <TableColumn prefWidth="221.0" text="Reserve Rooms(qty)" />
+            <TableColumn prefWidth="260.0" text="KeyMoney(LKR)" />
+            <TableColumn prefWidth="264.0" text="Paing Amount" />
+            <TableColumn prefWidth="255.0" text="Balance (LKR)" />
+            <TableColumn prefWidth="221.0" text="Operator" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="1540.0" layoutY="891.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
+   </children>
+</AnchorPane>

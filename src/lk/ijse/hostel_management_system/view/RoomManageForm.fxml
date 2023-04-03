@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="941.0" prefWidth="1701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.RoomManageFormController">
+   <children>
+      <ImageView fitHeight="941.0" fitWidth="1701.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/Capture.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="610.0" layoutY="28.0" prefHeight="77.0" prefWidth="435.0" text="  ROOMS MANAGE" textFill="#251c6f">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="56.0" fitWidth="91.0" layoutX="532.0" layoutY="36.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/living-room.png" />
+         </image>
+      </ImageView>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="195.0" layoutY="163.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Type Id" unFocusColor="#db1f5e">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="547.0" layoutY="163.0" prefHeight="37.0" prefWidth="390.0" promptText="Room Type" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1059.0" layoutY="163.0" prefHeight="37.0" prefWidth="390.0" promptText="Key Money [LKR]" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="197.0" layoutY="280.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Qty" unFocusColor="#0f0d7c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="900.0" layoutY="272.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1038.0" layoutY="272.0" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
+      <JFXButton buttonType="RAISED" layoutX="1175.0" layoutY="272.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
+      <ImageView fitHeight="179.0" fitWidth="157.0" layoutX="1537.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/pngwing.com%20(12).png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="189.0" layoutY="401.0" prefHeight="510.0" prefWidth="1277.0">
+        <columns>
+          <TableColumn prefWidth="177.99996948242188" text="Room Type Id" />
+          <TableColumn prefWidth="323.0" text="Room Type" />
+            <TableColumn prefWidth="248.0" text="Key Money [LKR]" />
+            <TableColumn prefWidth="302.0" text="Room QTY" />
+            <TableColumn prefWidth="225.0" text="Operator" />
+        </columns>
+      </TableView>
+      <Label layoutX="1576.0" layoutY="911.0" prefHeight="21.0" prefWidth="104.0" text="Verssion 1.001" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.DashBoardFormController">
+   <children>
+      <AnchorPane layoutX="-2.0" prefHeight="65.0" prefWidth="1946.0" style="-fx-background-color: #DFE2DE;">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="1833.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/person_FILL0_wght400_GRAD0_opsz48%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="1872.0" layoutY="21.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/expand_more_FILL0_wght400_GRAD0_opsz48.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="331.0" layoutY="13.0" prefHeight="39.0" prefWidth="657.0" promptText="Search...." style="-fx-background-radius: 15;" />
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="283.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/search_FILL0_wght400_GRAD0_opsz48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="32.0" layoutX="1015.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/loading-loading-forever.gif" />
+               </image>
+            </ImageView>
+            <Label layoutX="1054.0" layoutY="13.0" prefHeight="39.0" prefWidth="76.0" text="Operator" textFill="#094b54">
+               <font>
+                  <Font name="Arial Narrow Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="1184.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/mail_FILL1_wght400_GRAD0_opsz40.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="1290.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/settings_FILL1_wght400_GRAD0_opsz40.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="1701.0" layoutY="22.0" prefHeight="21.0" prefWidth="98.0" text="11:21:53 AM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="1000.0" prefWidth="244.0" style="-fx-background-color: #293E6C;">
+         <children>
+            <AnchorPane prefHeight="65.0" prefWidth="244.0" style="-fx-background-color: #EAE0C9;">
+               <children>
+                  <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/menu.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="62.0" layoutY="21.0" prefHeight="15.0" prefWidth="130.0" text="DASHBOARD" textFill="#2d107c">
+                     <font>
+                        <Font name="Constantia Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXButton buttonType="RAISED" layoutY="65.0" prefHeight="95.0" prefWidth="239.0" text="HOME" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="160.0" prefHeight="95.0" prefWidth="239.0" text="ADD STUDENT" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="255.0" prefHeight="95.0" prefWidth="239.0" text="ADD ROOM" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="350.0" prefHeight="95.0" prefWidth="239.0" text="RESERVE ROOM" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="445.0" prefHeight="95.0" prefWidth="244.0" text="RESERVATION DETAIL" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="910.0" prefHeight="95.0" prefWidth="244.0" style="-fx-background-color: #4B4B4B;" text="LOG OUT" textFill="#f2f2f2" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="941.0" fitWidth="1701.0" layoutX="244.0" layoutY="65.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/Capture.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
