@@ -71,18 +71,22 @@
                   </Label>
                </children>
             </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutY="65.0" prefHeight="95.0" prefWidth="239.0" text="HOME" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="160.0" prefHeight="95.0" prefWidth="239.0" text="ADD STUDENT" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="255.0" prefHeight="95.0" prefWidth="239.0" text="ADD ROOM" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="350.0" prefHeight="95.0" prefWidth="239.0" text="RESERVE ROOM" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="445.0" prefHeight="95.0" prefWidth="244.0" text="RESERVATION DETAIL" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="910.0" prefHeight="95.0" prefWidth="244.0" style="-fx-background-color: #4B4B4B;" text="LOG OUT" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="65.0" onAction="#homeOnAction" prefHeight="95.0" prefWidth="239.0" text="HOME" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="160.0" onAction="#StudentManageOnAction" prefHeight="95.0" prefWidth="239.0" text=" STUDENT MANAGE" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="255.0" onAction="#roomOnAction" prefHeight="95.0" prefWidth="239.0" text="ROOM MANAGE" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="350.0" onAction="#ReserveroomOnaction" prefHeight="95.0" prefWidth="239.0" text="RESERVE ROOM" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="445.0" onAction="#reservationOnAction" prefHeight="95.0" prefWidth="244.0" text="RESERVATION DETAIL" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="910.0" onAction="#logoutOnAction" prefHeight="95.0" prefWidth="244.0" style="-fx-background-color: #4B4B4B;" text="LOG OUT" textFill="#f2f2f2" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="941.0" fitWidth="1701.0" layoutX="244.0" layoutY="65.0" pickOnBounds="true">
-         <image>
-            <Image url="@../assets/Capture.PNG" />
-         </image>
-      </ImageView>
+      <AnchorPane fx:id="context" layoutX="244.0" layoutY="65.0" prefHeight="941.0" prefWidth="1701.0">
+         <children>
+            <ImageView fitHeight="941.0" fitWidth="1701.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/Capture.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

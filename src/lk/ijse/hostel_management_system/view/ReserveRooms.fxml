@@ -30,58 +30,58 @@
             <Image url="@../assets/reserve.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="179.0" fitWidth="157.0" layoutX="1544.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="177.0" fitWidth="184.0" layoutX="1427.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/pngwing.com%20(12).png" />
          </image>
       </ImageView>
-      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="105.0" layoutY="190.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#a81e1e" />
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="361.0" layoutY="197.0" prefHeight="31.0" prefWidth="234.0" promptText="Student Name" unFocusColor="#0f0d7c">
+      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="79.0" layoutY="191.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#a81e1e" />
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="341.0" layoutY="197.0" prefHeight="31.0" prefWidth="234.0" promptText="Student Name" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="670.0" layoutY="194.0" prefHeight="37.0" prefWidth="234.0" promptText="Student Address" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="651.0" layoutY="194.0" prefHeight="37.0" prefWidth="234.0" promptText="Student Address" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="979.0" layoutY="194.0" prefHeight="37.0" prefWidth="197.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="961.0" layoutY="194.0" prefHeight="37.0" prefWidth="197.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1251.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1238.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1650.0" layoutY="197.0" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: Yellow;" text="+" />
-      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="105.0" layoutY="292.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Type Id" unFocusColor="#a81e1e" />
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="361.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Room Type" unFocusColor="#0f0d7c">
+      <JFXButton layoutX="1620.0" layoutY="197.0" prefHeight="31.0" prefWidth="41.0" style="-fx-background-color: Yellow;" text="+" />
+      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="79.0" layoutY="295.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Type Id" unFocusColor="#a81e1e" />
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="341.0" layoutY="292.0" prefHeight="37.0" prefWidth="227.0" promptText="Room Type" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="670.0" layoutY="295.0" prefHeight="37.0" prefWidth="234.0" promptText="Rooms Availability" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="651.0" layoutY="295.0" prefHeight="37.0" prefWidth="234.0" promptText="Rooms Availability" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="979.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Key Money Monthly[LKR]" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="961.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Key Money Monthly[LKR]" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <Separator layoutX="1213.0" layoutY="295.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1251.0" layoutY="292.0" prefHeight="37.0" prefWidth="146.0" promptText="Paid Amount" unFocusColor="#0f0d7c">
+      <Separator layoutX="1201.0" layoutY="295.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1240.0" layoutY="292.0" prefHeight="37.0" prefWidth="157.0" promptText="Paid Amount" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="1540.0" layoutY="372.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
-      <DatePicker layoutX="1469.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
-      <TableView layoutX="105.0" layoutY="479.0" prefHeight="396.0" prefWidth="1581.0">
+      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="371.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
+      <DatePicker layoutX="1442.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
+      <TableView layoutX="79.0" layoutY="471.0" prefHeight="396.0" prefWidth="1587.0">
         <columns>
           <TableColumn prefWidth="130.0" text="Room ID" />
           <TableColumn prefWidth="229.0" text="Room Type" />
@@ -89,9 +89,9 @@
             <TableColumn prefWidth="260.0" text="KeyMoney(LKR)" />
             <TableColumn prefWidth="264.0" text="Paing Amount" />
             <TableColumn prefWidth="255.0" text="Balance (LKR)" />
-            <TableColumn prefWidth="221.0" text="Operator" />
+            <TableColumn prefWidth="227.0" text="Operator" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1540.0" layoutY="891.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="884.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
    </children>
 </AnchorPane>

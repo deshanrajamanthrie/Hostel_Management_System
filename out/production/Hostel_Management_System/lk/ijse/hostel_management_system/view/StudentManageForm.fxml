@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="941.0" prefWidth="1701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.StudentManageFormController">
    <children>
       <ImageView fitHeight="941.0" fitWidth="1701.0" layoutX="-3.0" pickOnBounds="true">
@@ -29,55 +28,55 @@
             <Image url="@../assets/student-with-graduation-cap.png" />
          </image>
       </ImageView>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="187.0" layoutY="166.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#db1f5e">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="130.0" layoutY="166.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#db1f5e">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="484.0" layoutY="166.0" prefHeight="37.0" prefWidth="390.0" promptText="Student Name" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="390.0" layoutY="167.0" prefHeight="37.0" prefWidth="363.0" promptText="Student Name" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="970.0" layoutY="167.0" prefHeight="37.0" prefWidth="452.0" promptText="Student Address" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="838.0" layoutY="171.0" prefHeight="37.0" prefWidth="363.0" promptText="Student Address" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="187.0" layoutY="270.0" prefHeight="37.0" prefWidth="184.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="130.0" layoutY="275.0" prefHeight="37.0" prefWidth="184.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXCheckBox checkedColor="#a43636" layoutX="631.0" layoutY="281.0" text="Male" textFill="#10279a" unCheckedColor="#ab2424">
+      <JFXCheckBox checkedColor="#a43636" layoutX="492.0" layoutY="281.0" text="Male" textFill="#10279a" unCheckedColor="#ab2424">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXCheckBox>
-      <Label layoutX="484.0" layoutY="275.0" prefHeight="37.0" prefWidth="102.0" text="Gender">
+      <Label layoutX="390.0" layoutY="268.0" prefHeight="51.0" prefWidth="102.0" text="Gender">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <JFXCheckBox checkedColor="#a43636" layoutX="772.0" layoutY="281.0" prefHeight="25.0" prefWidth="102.0" text="Female" textFill="#10279a" unCheckedColor="#ab2424">
+      <JFXCheckBox checkedColor="#a43636" layoutX="664.0" layoutY="281.0" prefHeight="25.0" prefWidth="89.0" text="Female" textFill="#10279a" unCheckedColor="#ab2424">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXCheckBox>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="972.0" layoutY="263.0" prefHeight="37.0" prefWidth="263.0" promptText="Contact No" unFocusColor="#0f0d7c">
+      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="838.0" layoutY="263.0" prefHeight="37.0" prefWidth="263.0" promptText="Contact No" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <ImageView fitHeight="179.0" fitWidth="157.0" layoutX="1527.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="179.0" fitWidth="157.0" layoutX="1423.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/pngwing.com%20(12).png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1324.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
-      <JFXButton buttonType="RAISED" layoutX="1438.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
-      <JFXButton buttonType="RAISED" layoutX="1561.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
-      <TableView layoutX="187.0" layoutY="404.0" prefHeight="491.0" prefWidth="1480.0">
+      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1358.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
+      <JFXButton buttonType="RAISED" layoutX="1491.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
+      <TableView layoutX="111.0" layoutY="400.0" prefHeight="491.0" prefWidth="1480.0">
         <columns>
           <TableColumn prefWidth="142.99996948242188" text=" Id" />
           <TableColumn minWidth="0.0" prefWidth="276.0" text=" Name" />

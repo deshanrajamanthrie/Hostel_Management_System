@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="941.0" prefWidth="1701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.RoomsReservationDetailController">
    <children>
       <ImageView fitHeight="941.0" fitWidth="1701.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true">
@@ -21,7 +20,7 @@
             <Font name="Berlin Sans FB Demi Bold" size="50.0" />
          </font>
       </Label>
-      <TableView layoutX="242.0" layoutY="169.0" prefHeight="305.0" prefWidth="1302.0">
+      <TableView layoutX="184.0" layoutY="169.0" prefHeight="305.0" prefWidth="1302.0">
         <columns>
           <TableColumn prefWidth="202.00003051757812" text="RESERVATION ID" />
           <TableColumn prefWidth="313.0" text="START DAY" />
@@ -30,7 +29,7 @@
             <TableColumn prefWidth="243.0" text="OPERATOR" />
         </columns>
       </TableView>
-      <TableView layoutX="242.0" layoutY="604.0" prefHeight="305.0" prefWidth="1302.0">
+      <TableView layoutX="184.0" layoutY="609.0" prefHeight="305.0" prefWidth="1302.0">
          <columns>
             <TableColumn prefWidth="138.00003051757812" text="RESERVATION ID" />
             <TableColumn prefWidth="210.0" text="ROOM ID" />
@@ -40,7 +39,7 @@
             <TableColumn prefWidth="197.0" text="BALANCE" />
          </columns>
       </TableView>
-      <ImageView fitHeight="158.0" fitWidth="153.0" layoutX="1548.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="178.0" fitWidth="171.0" layoutX="1481.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/pngwing.com%20(12).png" />
          </image>
@@ -50,5 +49,6 @@
             <Image url="@../assets/living-room%20(1).png" />
          </image>
       </ImageView>
+      <Label layoutX="1557.0" layoutY="914.0" text="Version 1.1.01" />
    </children>
 </AnchorPane>
