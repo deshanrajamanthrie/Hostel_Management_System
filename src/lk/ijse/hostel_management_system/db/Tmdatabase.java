@@ -9,6 +9,6 @@ public class Tmdatabase {
     public static ArrayList<User> usertable = new ArrayList<>();
 
     static {
-        usertable.add(new User("Deshan","Maduranga","deshan@gmail.com",new PassewordManage().encode("1234")));
+        usertable.add(new User("Deshan","Maduranga","",new PassewordManage().encode("")));
     }
 }

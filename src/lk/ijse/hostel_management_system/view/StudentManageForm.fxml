@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -28,42 +27,27 @@
             <Image url="@../assets/student-with-graduation-cap.png" />
          </image>
       </ImageView>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="130.0" layoutY="166.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#db1f5e">
+      <JFXTextField fx:id="txtStudentId" focusColor="#1a3997" labelFloat="true" layoutX="130.0" layoutY="166.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#db1f5e">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="390.0" layoutY="167.0" prefHeight="37.0" prefWidth="363.0" promptText="Student Name" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtStudentName" focusColor="#1a3997" labelFloat="true" layoutX="390.0" layoutY="167.0" prefHeight="37.0" prefWidth="363.0" promptText="Student Name" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="838.0" layoutY="171.0" prefHeight="37.0" prefWidth="363.0" promptText="Student Address" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtstudentadress" focusColor="#1a3997" labelFloat="true" layoutX="838.0" layoutY="171.0" prefHeight="37.0" prefWidth="363.0" promptText="Student Address" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="130.0" layoutY="275.0" prefHeight="37.0" prefWidth="184.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtDob" focusColor="#1a3997" labelFloat="true" layoutX="130.0" layoutY="263.0" prefHeight="37.0" prefWidth="184.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXCheckBox checkedColor="#a43636" layoutX="492.0" layoutY="281.0" text="Male" textFill="#10279a" unCheckedColor="#ab2424">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </JFXCheckBox>
-      <Label layoutX="390.0" layoutY="268.0" prefHeight="51.0" prefWidth="102.0" text="Gender">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <JFXCheckBox checkedColor="#a43636" layoutX="664.0" layoutY="281.0" prefHeight="25.0" prefWidth="89.0" text="Female" textFill="#10279a" unCheckedColor="#ab2424">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="838.0" layoutY="263.0" prefHeight="37.0" prefWidth="263.0" promptText="Contact No" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtContactNo" focusColor="#1a3997" labelFloat="true" layoutX="838.0" layoutY="263.0" prefHeight="37.0" prefWidth="289.0" promptText="Contact No" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -73,20 +57,26 @@
             <Image url="@../assets/pngwing.com%20(12).png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
-      <JFXButton buttonType="RAISED" layoutX="1358.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
-      <JFXButton buttonType="RAISED" layoutX="1491.0" layoutY="263.0" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
-      <TableView layoutX="111.0" layoutY="400.0" prefHeight="491.0" prefWidth="1480.0">
+      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="248.0" onAction="#SaveOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1340.0" layoutY="248.0" onAction="#UpdateOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
+      <JFXButton buttonType="RAISED" layoutX="1340.0" layoutY="310.0" onAction="#deleteOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
+      <TableView fx:id="tblStudent" layoutX="111.0" layoutY="400.0" prefHeight="491.0" prefWidth="1480.0">
         <columns>
-          <TableColumn prefWidth="142.99996948242188" text=" Id" />
-          <TableColumn minWidth="0.0" prefWidth="276.0" text=" Name" />
-            <TableColumn minWidth="0.0" prefWidth="280.0" text="Address" />
-            <TableColumn minWidth="0.0" prefWidth="202.0" text="Date Of Birth" />
-            <TableColumn minWidth="0.0" prefWidth="198.0" text="Gender" />
-            <TableColumn minWidth="0.0" prefWidth="204.0" text="Contact No" />
-            <TableColumn minWidth="0.0" prefWidth="176.0" text="Operater" />
+          <TableColumn fx:id="colid" prefWidth="142.99996948242188" text=" Id" />
+          <TableColumn fx:id="colname" minWidth="0.0" prefWidth="276.0" text=" Name" />
+            <TableColumn fx:id="coladdress" minWidth="0.0" prefWidth="280.0" text="Address" />
+            <TableColumn fx:id="coldateofbirth" minWidth="0.0" prefWidth="202.0" text="Date Of Birth" />
+            <TableColumn fx:id="colgender" minWidth="0.0" prefWidth="198.0" text="Gender" />
+            <TableColumn fx:id="colcontact" minWidth="0.0" prefWidth="204.0" text="Contact No" />
+            <TableColumn fx:id="coloperator" minWidth="0.0" prefWidth="176.0" text="Operater" />
         </columns>
       </TableView>
       <Label layoutX="1580.0" layoutY="917.0" prefHeight="21.0" prefWidth="104.0" text="Verssion 1.001" />
+      <JFXTextField fx:id="genderspId" labelFloat="true" layoutX="390.0" layoutY="266.0" prefHeight="37.0" prefWidth="372.0" promptText="Gender">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="310.0" onAction="#searchOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #957235;" text="SEARCH" textFill="WHITE" />
    </children>
 </AnchorPane>
