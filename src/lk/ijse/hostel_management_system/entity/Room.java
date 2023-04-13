@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Data
 @Entity(name="room")
-public class RoomEntitie {
+public class Room {
     @Id
     private String room_id;
     private String room_type;

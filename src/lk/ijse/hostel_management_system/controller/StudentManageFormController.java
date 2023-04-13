@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.hostel_management_system.bo.custom.impl.StudentboImpl;
+import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
 import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.tm.Student_Tm;
 
@@ -28,7 +28,7 @@ public class StudentManageFormController {
     public TableColumn colcontact;
     public TableColumn coloperator;
 
-    StudentboImpl studentbo = new StudentboImpl();
+    StudentBoImpl studentbo = new StudentBoImpl();
 
     public void initialize() {
         getallStudents();
@@ -54,7 +54,7 @@ public class StudentManageFormController {
 
     }
     private void getallStudents() {
-        StudentboImpl studentbo = new StudentboImpl();
+        StudentBoImpl studentbo = new StudentBoImpl();
         List<StudentDto> allStudent = studentbo.getAllStudent();
 
         for (StudentDto dto : allStudent) {

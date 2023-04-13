@@ -2,7 +2,7 @@ package lk.ijse.hostel_management_system.bo.custom.impl;
 
 import lk.ijse.hostel_management_system.dao.custom.impl.StudentDaoImpl;
 import lk.ijse.hostel_management_system.dto.StudentDto;
-import lk.ijse.hostel_management_system.entity.StudentEntitie;
+import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StudentboImpl {
+public class StudentBoImpl {
     Session session;
     Transaction transaction;
 
@@ -20,7 +20,7 @@ public class StudentboImpl {
 
     public boolean saveStudent(StudentDto dto) throws SQLException {
         openSession();
-        StudentEntitie save = studentDao.save(session, new StudentEntitie(
+        Student save = studentDao.save(session, new Student(
                 dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender(), dto.getStudent_contact()
         ));
         closeSession();
@@ -45,7 +45,7 @@ public class StudentboImpl {
 
     public boolean updateStudent(StudentDto dto) {
         openSession();
-        StudentEntitie update = studentDao.update(session, new StudentEntitie(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender()
+        Student update = studentDao.update(session, new Student(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender()
                 , dto.getStudent_contact()));
         closeSession();
         return update != null ? true : false;

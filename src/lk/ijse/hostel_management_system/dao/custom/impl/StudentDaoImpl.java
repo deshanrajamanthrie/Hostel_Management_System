@@ -1,34 +1,36 @@
 package lk.ijse.hostel_management_system.dao.custom.impl;
 
-import lk.ijse.hostel_management_system.entity.StudentEntitie;
+import lk.ijse.hostel_management_system.dao.custom.StudentDao;
+import lk.ijse.hostel_management_system.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class StudentDaoImpl {
+public class StudentDaoImpl implements StudentDao {
 
-    public StudentEntitie save(Session session, StudentEntitie entitie) throws SQLException {
+    public Student save(Session session, Student entitie) throws SQLException {
         session.save(entitie);
         return entitie;
     }
 
-    public List<StudentEntitie> getAll(Session session) {
+    public List<Student> getAll(Session session) {
         Query query = session.createQuery("From student");
-        List<StudentEntitie> list = query.list();
+        List<Student> list = query.list();
         return list;
     }
 
-    public StudentEntitie update(Session session, StudentEntitie entitie) {
+    public Student update(Session session, Student entitie) {
         session.update(entitie);
         return entitie;
     }
-   public boolean delete(Session session, String id){
-       StudentEntitie studentEntitie = session.get(StudentEntitie.class, id);
-       session.delete(studentEntitie);
-        return studentEntitie!=null;
 
-   }
+    public boolean delete(Session session, String id) {
+        Student studentEntitie = session.get(Student.class, id);
+        session.delete(studentEntitie);
+        return studentEntitie != null;
+
+    }
 
 }

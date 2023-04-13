@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Data
 @Entity(name = "student")
-public class StudentEntitie {
+public class Student {
     @Id
     private String studentId;
     private String student_name;
