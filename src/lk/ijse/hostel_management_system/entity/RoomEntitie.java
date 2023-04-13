@@ -14,7 +14,7 @@ public class RoomEntitie {
     @Id
     private String room_id;
     private String room_type;
-    private double keymoney;
+    private double keyMoney;
     private int room_qty;
 
 }

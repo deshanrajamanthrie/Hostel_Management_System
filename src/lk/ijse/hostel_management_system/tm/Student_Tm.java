@@ -1,13 +1,13 @@
 package lk.ijse.hostel_management_system.tm;
 
 import javafx.scene.control.Button;
-import lk.ijse.hostel_management_system.dto.Studentdto;
+import lk.ijse.hostel_management_system.dto.StudentDto;
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student_Tm extends Studentdto {
+public class Student_Tm extends StudentDto {
     private String studentId;
     private String student_name;
     private String student_address;

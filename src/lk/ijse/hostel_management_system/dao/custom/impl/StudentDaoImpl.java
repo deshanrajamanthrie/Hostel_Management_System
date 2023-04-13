@@ -1,6 +1,5 @@
 package lk.ijse.hostel_management_system.dao.custom.impl;
 
-import lk.ijse.hostel_management_system.dto.Studentdto;
 import lk.ijse.hostel_management_system.entity.StudentEntitie;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -8,7 +7,7 @@ import org.hibernate.query.Query;
 import java.sql.SQLException;
 import java.util.List;
 
-public class StudentdaoImpl {
+public class StudentDaoImpl {
 
     public StudentEntitie save(Session session, StudentEntitie entitie) throws SQLException {
         session.save(entitie);
@@ -25,4 +24,11 @@ public class StudentdaoImpl {
         session.update(entitie);
         return entitie;
     }
+   public boolean delete(Session session, String id){
+       StudentEntitie studentEntitie = session.get(StudentEntitie.class, id);
+       session.delete(studentEntitie);
+        return studentEntitie!=null;
+
+   }
+
 }

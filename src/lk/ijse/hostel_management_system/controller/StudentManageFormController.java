@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.hostel_management_system.bo.custom.impl.StudentboImpl;
-import lk.ijse.hostel_management_system.dto.Studentdto;
+import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.tm.Student_Tm;
 
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class StudentManageFormController {
     public JFXTextField txtDob;
     public JFXTextField genderspId;
     public JFXTextField txtContactNo;
-    public TableView<Studentdto> tblStudent;
+    public TableView<StudentDto> tblStudent;
     public TableColumn colid;
     public TableColumn colname;
     public TableColumn coladdress;
@@ -53,12 +53,11 @@ public class StudentManageFormController {
         });
 
     }
-
     private void getallStudents() {
         StudentboImpl studentbo = new StudentboImpl();
-        List<Studentdto> allStudent = studentbo.getAllStudent();
+        List<StudentDto> allStudent = studentbo.getAllStudent();
 
-        for (Studentdto dto : allStudent) {
+        for (StudentDto dto : allStudent) {
             Button btn = new Button("Remove Student");
             tblStudent.getItems().add(new Student_Tm(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(),
                     dto.getDob(), dto.getGender(), dto.getStudent_contact(), btn));
@@ -74,7 +73,6 @@ public class StudentManageFormController {
             );
         }
     }
-
     public void SaveOnAction(ActionEvent actionEvent) {
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
@@ -83,7 +81,7 @@ public class StudentManageFormController {
         String gender = genderspId.getText();
         String contact = txtContactNo.getText();
 
-        Studentdto studentdto = new Studentdto(id, name, address, dob, gender, contact);
+        StudentDto studentdto = new StudentDto(id, name, address, dob, gender, contact);
         System.out.println(studentdto);
 
         try {
@@ -98,39 +96,23 @@ public class StudentManageFormController {
             e.printStackTrace();
         }
     }
-
-
     public void UpdateOnAction(ActionEvent actionEvent) {
-       /* boolean b = studentbo.updateStudent(new Studentdto(txtStudentId.getText(), txtStudentName.getText(), txtstudentadress.getText()
+        boolean b = studentbo.updateStudent(new StudentDto(txtStudentId.getText(), txtStudentName.getText(), txtstudentadress.getText()
                 , txtDob.getText(), genderspId.getText(), txtContactNo.getText()));
             if(b==true){
                 new Alert(Alert.AlertType.INFORMATION,"Updated!").show();
             }else {
                 new Alert(Alert.AlertType.NONE,"Not Updated Try Again!").show();
-            }*/
-        String id = txtStudentId.getText();
-        String name = txtStudentName.getText();
-        String address = txtstudentadress.getText();
-        String dob = txtDob.getText();
-        String gender = genderspId.getText();
-        String contact = txtContactNo.getText();
-        boolean b = studentbo.updateStudent(new Studentdto(id, name, address, dob, gender, contact));
-        Studentdto selectedItem = tblStudent.getSelectionModel().getSelectedItem();
-        selectedItem.setStudentId(id);
-        selectedItem.setStudent_name(name);
-        selectedItem.setStudent_address(address);
-        selectedItem.setDob(dob);
-        selectedItem.setGender(gender);
-        selectedItem.setStudent_contact(contact);
-        new Alert(Alert.AlertType.CONFIRMATION,"Updated!").show();
-        tblStudent.refresh();
+            }
     }
-
     public void deleteOnAction(ActionEvent actionEvent) {
-
+        boolean  isdeleted= studentbo.deleteStudent(txtStudentId.getText());
+        if (isdeleted == true) {
+            new Alert(Alert.AlertType.CONFIRMATION,"Delete Successed").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Not Deleted ,Try again!").show();
+        }
     }
 
-    public void searchOnAction(ActionEvent actionEvent) {
 
-    }
 }

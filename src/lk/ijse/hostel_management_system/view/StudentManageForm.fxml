@@ -57,9 +57,9 @@
             <Image url="@../assets/pngwing.com%20(12).png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="248.0" onAction="#SaveOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
-      <JFXButton buttonType="RAISED" layoutX="1340.0" layoutY="248.0" onAction="#UpdateOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
-      <JFXButton buttonType="RAISED" layoutX="1340.0" layoutY="310.0" onAction="#deleteOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="263.0" onAction="#SaveOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1343.0" layoutY="263.0" onAction="#UpdateOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
+      <JFXButton buttonType="RAISED" layoutX="1457.0" layoutY="263.0" onAction="#deleteOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
       <TableView fx:id="tblStudent" layoutX="111.0" layoutY="400.0" prefHeight="491.0" prefWidth="1480.0">
         <columns>
           <TableColumn fx:id="colid" prefWidth="142.99996948242188" text=" Id" />
@@ -77,6 +77,5 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="1230.0" layoutY="310.0" onAction="#searchOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #957235;" text="SEARCH" textFill="WHITE" />
    </children>
 </AnchorPane>

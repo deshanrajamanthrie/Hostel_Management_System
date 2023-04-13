@@ -1,7 +1,7 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
-import lk.ijse.hostel_management_system.dao.custom.impl.StudentdaoImpl;
-import lk.ijse.hostel_management_system.dto.Studentdto;
+import lk.ijse.hostel_management_system.dao.custom.impl.StudentDaoImpl;
+import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.entity.StudentEntitie;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
@@ -14,19 +14,22 @@ import java.util.stream.Collectors;
 public class StudentboImpl {
     Session session;
     Transaction transaction;
-    StudentdaoImpl studentdao = new StudentdaoImpl();
 
-    public boolean saveStudent(Studentdto dto) throws SQLException {
-       OpenSession();
-        StudentEntitie save = studentdao.save(session, new StudentEntitie(
+
+    StudentDaoImpl studentDao = new StudentDaoImpl();
+
+    public boolean saveStudent(StudentDto dto) throws SQLException {
+        openSession();
+        StudentEntitie save = studentDao.save(session, new StudentEntitie(
                 dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender(), dto.getStudent_contact()
         ));
         closeSession();
         return save != null ? true : false;
     }
-    public List<Studentdto> getAllStudent(){
-        OpenSession();
-        final List<Studentdto>list = studentdao.getAll(session).stream().map(c -> new Studentdto(
+
+    public List<StudentDto> getAllStudent() {
+        openSession();
+        final List<StudentDto> list = studentDao.getAll(session).stream().map(c -> new StudentDto(
                 c.getStudentId(),
                 c.getStudent_name(),
                 c.getStudent_address(),
@@ -34,25 +37,29 @@ public class StudentboImpl {
                 c.getGender(),
                 c.getStudent_contact())).collect(Collectors.toList());
         closeSession();
-        for (Studentdto dto: list) {
-            System.out.println( dto);
+        for (StudentDto dto : list) {
+            System.out.println(dto);
         }
-        return  list;
+        return list;
     }
-    public boolean updateStudent(Studentdto dto){
-        OpenSession();
-        StudentEntitie update = studentdao.update(session, new StudentEntitie(dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender()
-                , dto.getStudent_contact(), dto.getStudentId()));
+
+    public boolean updateStudent(StudentDto dto) {
+        openSession();
+        StudentEntitie update = studentDao.update(session, new StudentEntitie(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender()
+                , dto.getStudent_contact()));
         closeSession();
-        return update !=null?true:false;
+        return update != null ? true : false;
+
+    }
+    public boolean deleteStudent(String id){
+        openSession();
+        boolean delete = studentDao.delete(session, id);
+        closeSession();
+        return delete ;
     }
 
 
-
-
-
-
-    public void OpenSession() {
+    public void openSession() {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
 
