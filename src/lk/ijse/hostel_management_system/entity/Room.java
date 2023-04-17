@@ -17,4 +17,5 @@ public class Room {
     private double keyMoney;
     private int room_qty;
 
+
 }

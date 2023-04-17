@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student_Tm extends StudentDto {
+public class StudentTm extends StudentDto {
     private String studentId;
     private String student_name;
     private String student_address;

@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,12 +21,18 @@ public class Student {
     private String gender;
     private String student_contact;
 
-  /*  public StudentEntities(String studentId, String student_name, String studentAddress, String dob, String gender, String student_contact) {
+   /* @OneToMany(mappedBy = "student",fetch = FetchType.LAZY)
+    private List<Reserve> reserveList;
+
+
+    public Student(String studentId, String student_name, String student_address, String dob, String gender, String student_contact) {
         this.studentId = studentId;
         this.student_name = student_name;
-        this.studentAddress = studentAddress;
+        this.student_address = student_address;
         this.dob = dob;
         this.gender = gender;
-        this.student_contact = student_contact;*/
+        this.student_contact = student_contact;
+    }*/
+
 
 }

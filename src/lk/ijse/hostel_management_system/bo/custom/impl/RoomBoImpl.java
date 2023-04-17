@@ -2,10 +2,16 @@ package lk.ijse.hostel_management_system.bo.custom.impl;
 
 import lk.ijse.hostel_management_system.dao.custom.impl.RoomDaoImpl;
 import lk.ijse.hostel_management_system.dto.RoomDto;
+import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.entity.Room;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RoomBoImpl {
     Session session;
@@ -22,6 +28,36 @@ public class RoomBoImpl {
         } else {
             return false;
         }
+    }
+
+    public List<RoomDto> getAllStudent() {
+        openSession();
+        List<RoomDto> list = roomdao.getAll(session).stream().map(r -> new RoomDto(
+                r.getRoom_id(),
+                r.getRoom_type(),
+                r.getKeyMoney(),
+                r.getRoom_qty())).collect(Collectors.toList());
+        closeSession();
+        for (RoomDto dto : list) {
+            System.out.println(dto);
+
+        }
+        return list;
+    }
+
+    public boolean updateRoom(RoomDto dto) throws SQLException {
+        openSession();
+        Room update = roomdao.update(session, new Room( dto.getRoom_id(),dto.getRoom_type(), dto.getKeymoney(),dto.getRoom_qty()));
+        System.out.println(update);
+        closeSession();
+        return update != null ? true : false;
+    }
+
+    public boolean deleteRoom(String id) throws SQLException {
+        openSession();
+        boolean delete = roomdao.delete(session, id);
+        closeSession();
+        return delete;
     }
 
 

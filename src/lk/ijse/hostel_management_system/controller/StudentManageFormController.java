@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
 import lk.ijse.hostel_management_system.dto.StudentDto;
-import lk.ijse.hostel_management_system.tm.Student_Tm;
+import lk.ijse.hostel_management_system.tm.StudentTm;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -59,7 +59,7 @@ public class StudentManageFormController {
 
         for (StudentDto dto : allStudent) {
             Button btn = new Button("Remove Student");
-            tblStudent.getItems().add(new Student_Tm(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(),
+            tblStudent.getItems().add(new StudentTm(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(),
                     dto.getDob(), dto.getGender(), dto.getStudent_contact(), btn));
 
             btn.setOnAction(event -> {
