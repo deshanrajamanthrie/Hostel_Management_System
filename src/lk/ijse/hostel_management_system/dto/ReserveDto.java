@@ -25,15 +25,3 @@ public class ReserveDto {
 
     private RoomDto room;
 }
-/*   @Id
-    String res_id;
-    LocalDate date;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "student_id",referencedColumnName = "student_id")
-    private Student student;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "room_type_id",referencedColumnName = "room_type_id")
-    private Room room;
-    String status;
-    int qty;*/

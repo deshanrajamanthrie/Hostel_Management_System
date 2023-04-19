@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class RoomManageFormController {
-    public JFXTextField txtroomId;
+  //  public JFXTextField txtroomId;
     public JFXTextField txtkeymoney;
     public JFXTextField txtroomQty;
     public JFXComboBox<String> cmbRoomType;
@@ -29,17 +29,14 @@ public class RoomManageFormController {
     public TableColumn colKeyMoney;
     public TableColumn colRoomQty;
     public TableColumn colOperator;
+    public JFXTextField txtRoomId;
 
     RoomBoImpl roomBo = new RoomBoImpl();
 
     public void initialize() {
         cmbTypeListner();
-        cmbIdListner();
         getAllRooms();
         showTableData();
-
-
-
     }
 
     private void showTableData() {
@@ -51,7 +48,7 @@ public class RoomManageFormController {
 
         tblroom.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-               cmbRoomId.setValue(newValue.getRoom_id());
+               txtRoomId.setText(newValue.getRoom_id());
                 cmbRoomType.setValue(newValue.getRoom_type());
                 txtkeymoney.setText(String.valueOf(newValue.getKeymoney()));
                 txtroomQty.setText(String.valueOf(newValue.getRoom_qty()));
@@ -61,6 +58,10 @@ public class RoomManageFormController {
     }
 
     private void getAllRooms() {
+        if(tblroom.getItems().size()>=0){
+            tblroom.getItems().clear();
+
+        }
         List<RoomDto> allStudent = roomBo.getAllRoom();
 
         for (RoomDto r : allStudent) {
@@ -79,14 +80,7 @@ public class RoomManageFormController {
         }
 
     }
-    private void cmbIdListner() {
-        ObservableList<String> cmbIdlist = FXCollections.observableArrayList();
-        cmbIdlist.add("RM-1324");
-        cmbIdlist.add("RM-5467");
-        cmbIdlist.add("RM-7896 ");
-        cmbIdlist.add("RM-0093");
-        cmbRoomId.setItems(cmbIdlist);
-    }
+
 
     public void cmbTypeListner() {
         ObservableList<String> cmbList = FXCollections.observableArrayList();
@@ -100,7 +94,7 @@ public class RoomManageFormController {
 
     public void roomSaveOnAction(ActionEvent actionEvent) {
 
-        String roomId = cmbRoomId.getValue();
+        String roomId =txtRoomId.getText();
         String roomType = cmbRoomType.getValue();
         double keyMoney = Double.parseDouble(txtkeymoney.getText());
         int roomQty = Integer.parseInt(txtroomQty.getText());
@@ -108,6 +102,10 @@ public class RoomManageFormController {
         boolean isSaved = roomBo.saveRoom(roomDto);
         if (isSaved) {
             new Alert(Alert.AlertType.CONFIRMATION, "Save Succesed!").show();
+            initialize();
+            txtRoomId.clear();
+            txtkeymoney.clear();
+            txtroomQty.clear();
         } else {
             new Alert(Alert.AlertType.NONE, "Try Again").show();
         }
@@ -120,15 +118,23 @@ public class RoomManageFormController {
         ), Integer.parseInt(txtroomQty.getText())));
         if (isUpdated == true) {
             new Alert(Alert.AlertType.CONFIRMATION, "Update Succesed!").show();
+            initialize();
+            txtRoomId.clear();
+            txtkeymoney.clear();
+            txtroomQty.clear();
         } else {
             new Alert(Alert.AlertType.NONE, "Try Again").show();
         }
     }
 
     public void roomDeleteOnAction(ActionEvent actionEvent) throws SQLException {
-        boolean isDeleted = roomBo.deleteRoom(txtroomId.getText());
+        boolean isDeleted = roomBo.deleteRoom(txtRoomId.getText());
         if(isDeleted==true){
             new Alert(Alert.AlertType.CONFIRMATION, "Delete Succesed!").show();
+            initialize();
+            txtRoomId.clear();
+            txtkeymoney.clear();
+            txtroomQty.clear();
         }else{
             new Alert(Alert.AlertType.NONE, "Try Again").show();
         }

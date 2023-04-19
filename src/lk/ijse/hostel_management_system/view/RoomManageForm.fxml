@@ -80,24 +80,10 @@
             </ColorAdjust>
          </effect>
       </JFXComboBox>
-      <JFXComboBox fx:id="cmbRoomId" focusColor="#0f2479" labelFloat="true" layoutX="197.0" layoutY="163.0" prefHeight="37.0" prefWidth="209.0" promptText="Room Id" unFocusColor="#4d4d4d">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <effect>
-            <ColorAdjust brightness="-0.93" contrast="-1.0" hue="-1.0" saturation="-1.0">
-               <input>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </input>
-            </ColorAdjust>
-         </effect>
-      </JFXComboBox>
+      <JFXTextField fx:id="txtRoomId" focusColor="#ae1c1c" labelFloat="true" layoutX="197.0" layoutY="163.0" prefHeight="37.0" prefWidth="209.0" promptText="Room Id">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

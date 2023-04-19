@@ -18,7 +18,9 @@ import lk.ijse.hostel_management_system.entity.Student;
 import org.hibernate.annotations.common.util.StringHelper;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class ReserveRoomsController {
@@ -41,23 +43,30 @@ public class ReserveRoomsController {
     StudentBoImpl studentBo = new StudentBoImpl();
     RoomBoImpl roomBo = new RoomBoImpl();
 
-    public void initialize() throws SQLException {
-
-        setStudentId();
-
+    public void initialize() {
+        dateSet();
+        //   setRoomDetail();
+        setStudentIdAndRoomId();
         cmbStId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
                 setStudentDetail((String) newValue));
 
+        txtRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
+                setRoomDetail((String) newValue));
+
     }
 
-    List<RoomDto> allStudent = roomBo.getAllRoom();
+    private void dateSet() {
+        txtgetTime.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+    }
+
+    List<RoomDto> allroom = roomBo.getAllRoom();
     List<StudentDto> allStudent1 = studentBo.getAllStudent();
 
-    private void setStudentId() {
+    private void setStudentIdAndRoomId() {
 
         ObservableList<String> stIdList = FXCollections.observableArrayList();
         ObservableList<String> roomList = FXCollections.observableArrayList();
-        for (RoomDto r : allStudent) {
+        for (RoomDto r : allroom) {
             roomList.add(r.getRoom_id());
         }
         for (StudentDto s : allStudent1) {
@@ -78,6 +87,17 @@ public class ReserveRoomsController {
         }
     }
 
+    private void setRoomDetail(String selectedRoomId) {
+        for (RoomDto r : allroom) {
+            if (r.getRoom_id().equals(txtRoomId.getValue())) {
+                txtRoomType.setText(r.getRoom_type());
+                txtRoomAvailable.setText(String.valueOf(r.getRoom_qty()));
+                txtKeymoney.setText(String.valueOf(r.getKeymoney()));
+            }
+
+        }
+    }
+
     public void AddToCartOnAction(ActionEvent actionEvent) {
 
     }
@@ -87,7 +107,8 @@ public class ReserveRoomsController {
         try {
             ReserveDto reserveDto = new ReserveDto();
             reserveDto.setReserve_Id(s);
-            reserveDto.setReserve_Date(LocalDate.now());
+            reserveDto.setStart_Date(txtgetTime.getText());
+            reserveDto.setReserve_Date(datepicker.getValue());
             StudentDto studentDto = new StudentDto();
             studentDto.setStudentId(cmbStId.getValue());
             RoomDto roomDto = new RoomDto();

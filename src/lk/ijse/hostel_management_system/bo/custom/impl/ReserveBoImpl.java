@@ -55,7 +55,7 @@ public class ReserveBoImpl {
         openSession();
         String id = reserveDao.genarateId(session);
         closeSession();
-        return GenerateId.genarateNewId("R-",id);
+        return GenerateId.genarateNewId("RS-",id);
     }
 
     public void openSession() {

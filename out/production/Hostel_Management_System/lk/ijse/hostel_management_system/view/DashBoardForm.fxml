@@ -48,7 +48,12 @@
                   <Image url="@../assets/settings_FILL1_wght400_GRAD0_opsz40.png" />
                </image>
             </ImageView>
-            <Label layoutX="1701.0" layoutY="22.0" prefHeight="21.0" prefWidth="98.0" text="11:21:53 AM">
+            <Label fx:id="lbltime" layoutX="1591.0" layoutY="23.0" prefHeight="21.0" prefWidth="98.0" text="11:21:53 AM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbldate" layoutX="1735.0" layoutY="23.0" prefHeight="21.0" prefWidth="98.0" text="2022-02-02 ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -71,12 +76,11 @@
                   </Label>
                </children>
             </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutY="65.0" onAction="#homeOnAction" prefHeight="95.0" prefWidth="239.0" text="HOME" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="160.0" onAction="#StudentManageOnAction" prefHeight="95.0" prefWidth="239.0" text=" STUDENT MANAGE" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="255.0" onAction="#roomOnAction" prefHeight="95.0" prefWidth="239.0" text="ROOM MANAGE" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="350.0" onAction="#ReserveroomOnaction" prefHeight="95.0" prefWidth="239.0" text="RESERVE ROOM" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="445.0" onAction="#reservationOnAction" prefHeight="95.0" prefWidth="244.0" text="RESERVATION DETAIL" textFill="#f2f2f2" />
-            <JFXButton buttonType="RAISED" layoutY="910.0" onAction="#logoutOnAction" prefHeight="95.0" prefWidth="244.0" style="-fx-background-color: #4B4B4B;" text="LOG OUT" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="300.0" onAction="#homeOnAction" prefHeight="95.0" prefWidth="239.0" text="HOME" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="395.0" onAction="#StudentManageOnAction" prefHeight="95.0" prefWidth="239.0" text="  STUDENT MANAGE" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutX="3.0" layoutY="490.0" onAction="#roomOnAction" prefHeight="95.0" prefWidth="239.0" text="ROOM MANAGE" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutX="3.0" layoutY="585.0" onAction="#ReserveroomOnaction" prefHeight="95.0" prefWidth="239.0" text=" RESERVE ROOM" textFill="#f2f2f2" />
+            <JFXButton buttonType="RAISED" layoutY="948.0" onAction="#logoutOnAction" prefHeight="57.0" prefWidth="244.0" style="-fx-background-color: #4B4B4B;" text="LOG OUT" textFill="#f2f2f2" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="context" layoutX="244.0" layoutY="65.0" prefHeight="941.0" prefWidth="1701.0">

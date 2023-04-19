@@ -19,7 +19,7 @@ public class Reserve {
     private String reserve_Id;
     @Column(name = "startDate")
     private String start_Date;
-    private Date reserve_Date;
+    private Date reserve_Date;//Date
 
     @ManyToOne
     @JoinColumn(name="studentId")

@@ -81,7 +81,7 @@ public class StudentManageFormController {
     }
     public void SaveOnAction(ActionEvent actionEvent) {
         StudentBoImpl studentBo = new StudentBoImpl();
-        String s = studentBo.genarateIdStudent();
+        //String s = studentBo.genarateIdStudent();
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
         String address = txtstudentadress.getText();
@@ -110,6 +110,12 @@ public class StudentManageFormController {
                 , txtDob.getText(), genderspId.getText(), txtContactNo.getText()));
         if (b == true) {
             new Alert(Alert.AlertType.INFORMATION, "Updated!").show();
+            initialize();
+            txtStudentId.clear();
+            txtStudentName.clear();
+            txtstudentadress.clear();
+            txtDob.clear();
+            txtContactNo.clear();
         } else {
             new Alert(Alert.AlertType.NONE, "Not Updated Try Again!").show();
         }
@@ -119,6 +125,12 @@ public class StudentManageFormController {
         boolean isdeleted = studentbo.deleteStudent(txtStudentId.getText());
         if (isdeleted == true) {
             new Alert(Alert.AlertType.CONFIRMATION, "Delete Successed").show();
+            initialize();
+            txtStudentId.clear();
+            txtStudentName.clear();
+            txtstudentadress.clear();
+            txtDob.clear();
+            txtContactNo.clear();
         } else {
             new Alert(Alert.AlertType.ERROR, "Not Deleted ,Try again!").show();
         }

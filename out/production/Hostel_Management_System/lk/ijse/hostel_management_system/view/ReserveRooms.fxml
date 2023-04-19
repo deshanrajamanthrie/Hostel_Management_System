@@ -93,6 +93,6 @@
         </columns>
       </TableView>
       <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="884.0" onAction="#placeOrderOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
-      <Label fx:id="txtgetTime" layoutX="1312.0" layoutY="28.0" opacity="0.54" prefHeight="45.0" prefWidth="134.0" text="12:13:26 AM" />
+      <Label fx:id="txtgetTime" layoutX="1312.0" layoutY="28.0" opacity="0.0" prefHeight="45.0" prefWidth="134.0" text="12:13:26 AM" />
    </children>
 </AnchorPane>
