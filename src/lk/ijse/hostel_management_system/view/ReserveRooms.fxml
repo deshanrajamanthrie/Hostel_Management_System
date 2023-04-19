@@ -35,52 +35,52 @@
             <Image url="@../assets/pngwing.com%20(12).png" />
          </image>
       </ImageView>
-      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="79.0" layoutY="191.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#a81e1e" />
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="341.0" layoutY="197.0" prefHeight="31.0" prefWidth="234.0" promptText="Student Name" unFocusColor="#0f0d7c">
+      <JFXComboBox fx:id="cmbStId" focusColor="#ae1111" labelFloat="true" layoutX="79.0" layoutY="191.0" prefHeight="37.0" prefWidth="184.0" promptText="Student Id" unFocusColor="#a81e1e" />
+      <JFXTextField fx:id="txtStName" focusColor="#1a3997" labelFloat="true" layoutX="341.0" layoutY="197.0" prefHeight="31.0" prefWidth="234.0" promptText="Student Name" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="651.0" layoutY="194.0" prefHeight="37.0" prefWidth="234.0" promptText="Student Address" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtStAddress" focusColor="#1a3997" labelFloat="true" layoutX="651.0" layoutY="194.0" prefHeight="37.0" prefWidth="234.0" promptText="Student Address" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="961.0" layoutY="194.0" prefHeight="37.0" prefWidth="197.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtStDob" focusColor="#1a3997" labelFloat="true" layoutX="961.0" layoutY="194.0" prefHeight="37.0" prefWidth="197.0" promptText="Date Of Birth" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1238.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtContactNo" focusColor="#1a3997" labelFloat="true" layoutX="1238.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
       <JFXButton layoutX="1620.0" layoutY="197.0" prefHeight="31.0" prefWidth="41.0" style="-fx-background-color: Yellow;" text="+" />
-      <JFXComboBox focusColor="#ae1111" labelFloat="true" layoutX="79.0" layoutY="295.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Type Id" unFocusColor="#a81e1e" />
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="341.0" layoutY="292.0" prefHeight="37.0" prefWidth="227.0" promptText="Room Type" unFocusColor="#0f0d7c">
+      <JFXComboBox fx:id="txtRoomId" focusColor="#ae1111" labelFloat="true" layoutX="79.0" layoutY="295.0" prefHeight="37.0" prefWidth="184.0" promptText="Room Type Id" unFocusColor="#a81e1e" />
+      <JFXTextField fx:id="txtRoomType" focusColor="#1a3997" labelFloat="true" layoutX="341.0" layoutY="292.0" prefHeight="37.0" prefWidth="227.0" promptText="Room Type" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="651.0" layoutY="295.0" prefHeight="37.0" prefWidth="234.0" promptText="Rooms Availability" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtRoomAvailable" focusColor="#1a3997" labelFloat="true" layoutX="651.0" layoutY="295.0" prefHeight="37.0" prefWidth="234.0" promptText="Rooms Availability" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="961.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Key Money Monthly[LKR]" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtKeymoney" focusColor="#1a3997" labelFloat="true" layoutX="961.0" layoutY="295.0" prefHeight="37.0" prefWidth="209.0" promptText="Key Money Monthly[LKR]" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
       <Separator layoutX="1201.0" layoutY="295.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-      <JFXTextField focusColor="#1a3997" labelFloat="true" layoutX="1240.0" layoutY="292.0" prefHeight="37.0" prefWidth="157.0" promptText="Paid Amount" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtPaid" focusColor="#1a3997" labelFloat="true" layoutX="1240.0" layoutY="292.0" prefHeight="37.0" prefWidth="157.0" promptText="Paid Amount" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="371.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
-      <DatePicker layoutX="1442.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
+      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="371.0" onAction="#AddToCartOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
+      <DatePicker fx:id="datepicker" layoutX="1442.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
       <TableView layoutX="79.0" layoutY="471.0" prefHeight="396.0" prefWidth="1587.0">
         <columns>
           <TableColumn prefWidth="130.0" text="Room ID" />
@@ -92,6 +92,7 @@
             <TableColumn prefWidth="227.0" text="Operator" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="884.0" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="884.0" onAction="#placeOrderOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
+      <Label fx:id="txtgetTime" layoutX="1312.0" layoutY="28.0" opacity="0.54" prefHeight="45.0" prefWidth="134.0" text="12:13:26 AM" />
    </children>
 </AnchorPane>

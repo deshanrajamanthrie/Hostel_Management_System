@@ -61,7 +61,7 @@ public class RoomManageFormController {
     }
 
     private void getAllRooms() {
-        List<RoomDto> allStudent = roomBo.getAllStudent();
+        List<RoomDto> allStudent = roomBo.getAllRoom();
 
         for (RoomDto r : allStudent) {
             Button btn = new Button("Remove Room");

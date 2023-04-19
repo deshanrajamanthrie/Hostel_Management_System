@@ -5,7 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,22 +17,15 @@ import java.time.LocalDate;
 public class Reserve {
     @Id
     private String reserve_Id;
-    @Column(name="start_Date")
-    private  String start_Date;
-    private LocalDate reserve_Date;
+    @Column(name = "startDate")
+    private String start_Date;
+    private Date reserve_Date;
 
     @ManyToOne
-    private Student student_Id;
-}
-/*   @Id
-    String res_id;
-    LocalDate date;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "student_id",referencedColumnName = "student_id")
-    private Student student;
+    @JoinColumn(name="studentId")
+    private Student student;//student_reserver
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "room_type_id",referencedColumnName = "room_type_id")
+    @ManyToOne
+    @JoinColumn(name = "roomId")
     private Room room;
-    String status;
-    int qty;*/
+}

@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Data
 @Entity(name = "student")
@@ -21,8 +21,9 @@ public class Student {
     private String gender;
     private String student_contact;
 
-   /* @OneToMany(mappedBy = "student",fetch = FetchType.LAZY)
-    private List<Reserve> reserveList;
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,targetEntity = Reserve.class)
+    private List<Reserve>rsList;
+
 
 
     public Student(String studentId, String student_name, String student_address, String dob, String gender, String student_contact) {
@@ -32,7 +33,8 @@ public class Student {
         this.dob = dob;
         this.gender = gender;
         this.student_contact = student_contact;
-    }*/
+
+    }
 
 
 }

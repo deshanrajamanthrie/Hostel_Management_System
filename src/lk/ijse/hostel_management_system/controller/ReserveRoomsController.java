@@ -1,4 +1,102 @@
 package lk.ijse.hostel_management_system.controller;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import lk.ijse.hostel_management_system.bo.custom.impl.ReserveBoImpl;
+import lk.ijse.hostel_management_system.bo.custom.impl.RoomBoImpl;
+import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
+import lk.ijse.hostel_management_system.dto.ReserveDto;
+import lk.ijse.hostel_management_system.dto.RoomDto;
+import lk.ijse.hostel_management_system.dto.StudentDto;
+import lk.ijse.hostel_management_system.entity.Student;
+import org.hibernate.annotations.common.util.StringHelper;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
+
 public class ReserveRoomsController {
+
+
+    public JFXComboBox<String> cmbStId;
+    public JFXTextField txtStName;
+    public JFXTextField txtStAddress;
+    public JFXTextField txtStDob;
+    public JFXTextField txtContactNo;
+    public JFXComboBox<String> txtRoomId;
+    public JFXTextField txtRoomType;
+    public JFXTextField txtRoomAvailable;
+    public JFXTextField txtKeymoney;
+    public JFXTextField txtPaid;
+    public DatePicker datepicker;
+    public Label txtgetTime;
+
+    ReserveBoImpl reserveBo = new ReserveBoImpl();
+    StudentBoImpl studentBo = new StudentBoImpl();
+    RoomBoImpl roomBo = new RoomBoImpl();
+
+    public void initialize() throws SQLException {
+
+        setStudentId();
+
+        cmbStId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
+                setStudentDetail((String) newValue));
+
+    }
+
+    List<RoomDto> allStudent = roomBo.getAllRoom();
+    List<StudentDto> allStudent1 = studentBo.getAllStudent();
+
+    private void setStudentId() {
+
+        ObservableList<String> stIdList = FXCollections.observableArrayList();
+        ObservableList<String> roomList = FXCollections.observableArrayList();
+        for (RoomDto r : allStudent) {
+            roomList.add(r.getRoom_id());
+        }
+        for (StudentDto s : allStudent1) {
+            stIdList.add(s.getStudentId());
+        }
+        cmbStId.setItems(stIdList);
+        txtRoomId.setItems(roomList);
+    }
+
+    private void setStudentDetail(String selectedStudentId) {
+        for (StudentDto s : allStudent1) {
+            if (s.getStudentId().equals(cmbStId.getValue())) {
+                txtStName.setText(s.getStudent_name());
+                txtStAddress.setText(s.getStudent_address());
+                txtStDob.setText(s.getDob());
+                txtContactNo.setText(String.valueOf(s.getStudent_contact()));
+            }
+        }
+    }
+
+    public void AddToCartOnAction(ActionEvent actionEvent) {
+
+    }
+
+    public void placeOrderOnAction(ActionEvent actionEvent) {
+        String s = reserveBo.genarateIdReservation();
+        try {
+            ReserveDto reserveDto = new ReserveDto();
+            reserveDto.setReserve_Id(s);
+            reserveDto.setReserve_Date(LocalDate.now());
+            StudentDto studentDto = new StudentDto();
+            studentDto.setStudentId(cmbStId.getValue());
+            RoomDto roomDto = new RoomDto();
+            roomDto.setRoom_id(txtRoomId.getValue());
+            reserveDto.setRoom(roomDto);
+            reserveDto.setStudent(studentDto);
+            reserveBo.saveReserve(reserveDto);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

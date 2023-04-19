@@ -4,6 +4,7 @@ import lk.ijse.hostel_management_system.dao.custom.impl.RoomDaoImpl;
 import lk.ijse.hostel_management_system.dto.RoomDto;
 import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.entity.Room;
+import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -30,7 +31,7 @@ public class RoomBoImpl {
         }
     }
 
-    public List<RoomDto> getAllStudent() {
+    public List<RoomDto> getAllRoom() {
         openSession();
         List<RoomDto> list = roomdao.getAll(session).stream().map(r -> new RoomDto(
                 r.getRoom_id(),
@@ -43,6 +44,12 @@ public class RoomBoImpl {
 
         }
         return list;
+    }
+    public Room searchRoom(String id){
+        openSession();
+        Room search = roomdao.search(session, id);
+        closeSession();
+        return search;
     }
 
     public boolean updateRoom(RoomDto dto) throws SQLException {

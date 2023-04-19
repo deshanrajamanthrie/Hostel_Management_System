@@ -4,6 +4,7 @@ import lk.ijse.hostel_management_system.dao.custom.impl.StudentDaoImpl;
 import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
+import lk.ijse.hostel_management_system.util.GenerateId;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -49,13 +50,19 @@ public class StudentBoImpl {
                 , dto.getStudent_contact()));
         closeSession();
         return update != null ? true : false;
-
     }
+
     public boolean deleteStudent(String id){
         openSession();
         boolean delete = studentDao.delete(session, id);
         closeSession();
         return delete ;
+    }
+    public String genarateIdStudent(){
+        openSession();
+        String id = studentDao.genarateId(session);
+        closeSession();
+        return GenerateId.genarateNewId("R-",id);
     }
 
 

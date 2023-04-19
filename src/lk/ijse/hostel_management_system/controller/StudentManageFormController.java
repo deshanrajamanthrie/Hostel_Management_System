@@ -4,12 +4,14 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.hostel_management_system.bo.custom.impl.RoomBoImpl;
 import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
 import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.tm.StudentTm;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Locale;
 
 public class StudentManageFormController {
 
@@ -53,7 +55,11 @@ public class StudentManageFormController {
         });
 
     }
+
     private void getallStudents() {
+        if (tblStudent.getItems().size() >= 0) {
+            tblStudent.getItems().clear();
+        }
         StudentBoImpl studentbo = new StudentBoImpl();
         List<StudentDto> allStudent = studentbo.getAllStudent();
 
@@ -74,6 +80,8 @@ public class StudentManageFormController {
         }
     }
     public void SaveOnAction(ActionEvent actionEvent) {
+        StudentBoImpl studentBo = new StudentBoImpl();
+        String s = studentBo.genarateIdStudent();
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
         String address = txtstudentadress.getText();
@@ -86,9 +94,9 @@ public class StudentManageFormController {
 
         try {
             boolean isAdded = studentbo.saveStudent(studentdto);
-
             if (isAdded) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Succesed !").show();
+                initialize();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Try Again").show();
             }
@@ -96,21 +104,23 @@ public class StudentManageFormController {
             e.printStackTrace();
         }
     }
+
     public void UpdateOnAction(ActionEvent actionEvent) {
         boolean b = studentbo.updateStudent(new StudentDto(txtStudentId.getText(), txtStudentName.getText(), txtstudentadress.getText()
                 , txtDob.getText(), genderspId.getText(), txtContactNo.getText()));
-            if(b==true){
-                new Alert(Alert.AlertType.INFORMATION,"Updated!").show();
-            }else {
-                new Alert(Alert.AlertType.NONE,"Not Updated Try Again!").show();
-            }
+        if (b == true) {
+            new Alert(Alert.AlertType.INFORMATION, "Updated!").show();
+        } else {
+            new Alert(Alert.AlertType.NONE, "Not Updated Try Again!").show();
+        }
     }
+
     public void deleteOnAction(ActionEvent actionEvent) {
-        boolean  isdeleted= studentbo.deleteStudent(txtStudentId.getText());
+        boolean isdeleted = studentbo.deleteStudent(txtStudentId.getText());
         if (isdeleted == true) {
-            new Alert(Alert.AlertType.CONFIRMATION,"Delete Successed").show();
-        }else{
-            new Alert(Alert.AlertType.ERROR,"Not Deleted ,Try again!").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Delete Successed").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Not Deleted ,Try again!").show();
         }
     }
 

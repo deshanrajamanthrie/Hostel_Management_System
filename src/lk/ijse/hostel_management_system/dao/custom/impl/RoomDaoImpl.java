@@ -2,6 +2,7 @@ package lk.ijse.hostel_management_system.dao.custom.impl;
 
 import lk.ijse.hostel_management_system.dao.custom.RoomDao;
 import lk.ijse.hostel_management_system.entity.Room;
+import lk.ijse.hostel_management_system.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -23,6 +24,9 @@ public class RoomDaoImpl implements RoomDao {
 
 
     }
+    public Room search(Session session,String id){
+      return   session.get(Room.class,id);
+    }
 
     @Override
     public Room update(Session session, Room entitie) throws SQLException {
@@ -39,4 +43,11 @@ public class RoomDaoImpl implements RoomDao {
     }
 
 
+  /*  @Override
+    public String genarateId(Session session) {
+        Query query = session.createQuery("from  student  order by studentId desc ");
+        query.setCacheable(true);
+        List<Student> rsList = query.getResultList();
+        return rsList.size()==0?null:rsList.get(0).getStudentId();
+    }*/
 }
