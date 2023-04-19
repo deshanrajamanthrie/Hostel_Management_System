@@ -19,6 +19,7 @@ public class ReserveDto {
 
     private String start_Date;
     private LocalDate reserve_Date;
+    private String status;
 
 
     private StudentDto student;//student_reserver

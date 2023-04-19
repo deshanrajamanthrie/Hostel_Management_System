@@ -20,9 +20,10 @@ public class Reserve {
     @Column(name = "startDate")
     private String start_Date;
     private Date reserve_Date;//Date
+    private String status;
 
     @ManyToOne
-    @JoinColumn(name="studentId")
+    @JoinColumn(name = "studentId")
     private Student student;//student_reserver
 
     @ManyToOne

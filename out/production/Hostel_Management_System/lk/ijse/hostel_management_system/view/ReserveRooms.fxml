@@ -51,7 +51,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContactNo" focusColor="#1a3997" labelFloat="true" layoutX="1238.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
+      <JFXTextField fx:id="txtContactNo" focusColor="#1a3997" labelFloat="true" layoutX="1252.0" layoutY="194.0" prefHeight="37.0" prefWidth="146.0" promptText="Contact No" unFocusColor="#0f0d7c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -74,11 +74,6 @@
          </font>
       </JFXTextField>
       <Separator layoutX="1201.0" layoutY="295.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-      <JFXTextField fx:id="txtPaid" focusColor="#1a3997" labelFloat="true" layoutX="1240.0" layoutY="292.0" prefHeight="37.0" prefWidth="157.0" promptText="Paid Amount" unFocusColor="#0f0d7c">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXTextField>
       <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="371.0" onAction="#AddToCartOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
       <DatePicker fx:id="datepicker" layoutX="1442.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
       <TableView layoutX="79.0" layoutY="471.0" prefHeight="396.0" prefWidth="1587.0">
@@ -94,5 +89,6 @@
       </TableView>
       <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="884.0" onAction="#placeOrderOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
       <Label fx:id="txtgetTime" layoutX="1312.0" layoutY="28.0" opacity="0.0" prefHeight="45.0" prefWidth="134.0" text="12:13:26 AM" />
+      <JFXComboBox fx:id="cmbStatus" labelFloat="true" layoutX="1249.0" layoutY="295.0" prefHeight="37.0" prefWidth="153.0" promptText="Status" unFocusColor="#090c6f" />
    </children>
 </AnchorPane>

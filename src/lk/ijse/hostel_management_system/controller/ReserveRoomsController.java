@@ -3,6 +3,7 @@ package lk.ijse.hostel_management_system.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -38,12 +39,14 @@ public class ReserveRoomsController {
     public JFXTextField txtPaid;
     public DatePicker datepicker;
     public Label txtgetTime;
+    public JFXComboBox<String> cmbStatus;
 
     ReserveBoImpl reserveBo = new ReserveBoImpl();
     StudentBoImpl studentBo = new StudentBoImpl();
     RoomBoImpl roomBo = new RoomBoImpl();
 
     public void initialize() {
+        setStatus();
         dateSet();
         //   setRoomDetail();
         setStudentIdAndRoomId();
@@ -52,6 +55,13 @@ public class ReserveRoomsController {
 
         txtRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
                 setRoomDetail((String) newValue));
+
+    }
+    public  void setStatus(){
+        ObservableList<String> statusList = FXCollections.observableArrayList();
+        statusList.add("Paid");
+        statusList.add("None Paid");
+        cmbStatus.setItems(statusList);
 
     }
 
@@ -109,6 +119,7 @@ public class ReserveRoomsController {
             reserveDto.setReserve_Id(s);
             reserveDto.setStart_Date(txtgetTime.getText());
             reserveDto.setReserve_Date(datepicker.getValue());
+            reserveDto.setStatus(cmbStatus.getValue());
             StudentDto studentDto = new StudentDto();
             studentDto.setStudentId(cmbStId.getValue());
             RoomDto roomDto = new RoomDto();

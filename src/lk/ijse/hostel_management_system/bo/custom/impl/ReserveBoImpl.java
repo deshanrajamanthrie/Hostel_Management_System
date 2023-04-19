@@ -40,8 +40,8 @@ public class ReserveBoImpl {
         Room room1 = roomDao.search(session, dto.getRoom().getRoom_id());
         Student student = new Student();
         student.setStudentId(dto.getStudent().getStudentId());
-        Reserve save = reserveDao.save(session, new Reserve(dto.getReserve_Id(), dto.getStart_Date(), Date.valueOf(dto.getReserve_Date()), student,
-                room1));
+        Reserve save = reserveDao.save(session, new Reserve(dto.getReserve_Id(), dto.getStart_Date(), Date.valueOf(dto.getReserve_Date()),
+                dto.getStatus(), student,room1));
         if (save != null) {
             room1.setRoom_qty(room1.getRoom_qty() - 1);
             closeSession();
