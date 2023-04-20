@@ -6,9 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import lk.ijse.hostel_management_system.bo.custom.impl.ReserveBoImpl;
 import lk.ijse.hostel_management_system.bo.custom.impl.RoomBoImpl;
 import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
@@ -40,6 +38,14 @@ public class ReserveRoomsController {
     public DatePicker datepicker;
     public Label txtgetTime;
     public JFXComboBox<String> cmbStatus;
+    public TableView<ReserveDto> tblReserve;
+    public TableColumn colReserveId;
+    public TableColumn colStartdate;
+    public TableColumn colReservedate;
+    public TableColumn colstatus;
+    public TableColumn colRoomId;
+    public TableColumn colStudentid;
+    public TableColumn Operator;
 
     ReserveBoImpl reserveBo = new ReserveBoImpl();
     StudentBoImpl studentBo = new StudentBoImpl();
@@ -57,7 +63,8 @@ public class ReserveRoomsController {
                 setRoomDetail((String) newValue));
 
     }
-    public  void setStatus(){
+
+    public void setStatus() {
         ObservableList<String> statusList = FXCollections.observableArrayList();
         statusList.add("Paid");
         statusList.add("None Paid");
@@ -106,10 +113,6 @@ public class ReserveRoomsController {
             }
 
         }
-    }
-
-    public void AddToCartOnAction(ActionEvent actionEvent) {
-
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
