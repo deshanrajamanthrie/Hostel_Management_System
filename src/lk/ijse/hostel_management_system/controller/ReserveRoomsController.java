@@ -50,6 +50,9 @@ public class ReserveRoomsController {
     StudentBoImpl studentBo = new StudentBoImpl();
     RoomBoImpl roomBo = new RoomBoImpl();
 
+    public ReserveRoomsController() throws SQLException {
+    }
+
     public void initialize() throws SQLException {
         setStatus();
         dateSet();

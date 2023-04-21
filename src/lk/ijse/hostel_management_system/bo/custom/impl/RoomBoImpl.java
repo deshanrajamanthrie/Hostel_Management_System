@@ -1,6 +1,10 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
 import lk.ijse.hostel_management_system.bo.custom.RoomBO;
+import lk.ijse.hostel_management_system.dao.DAOFactory;
+import lk.ijse.hostel_management_system.dao.DAOType;
+import lk.ijse.hostel_management_system.dao.SuperDao;
+import lk.ijse.hostel_management_system.dao.custom.RoomDao;
 import lk.ijse.hostel_management_system.dao.custom.impl.RoomDaoImpl;
 import lk.ijse.hostel_management_system.dto.RoomDto;
 import lk.ijse.hostel_management_system.entity.Room;
@@ -15,12 +19,18 @@ import java.util.stream.Collectors;
 public class RoomBoImpl implements RoomBO {
     Session session;
     Transaction transaction;
-    RoomDaoImpl roomdao = new RoomDaoImpl();
+
+    RoomDao roomdao = (RoomDao) DAOFactory.getInstance().getDao(DAOType.ROOM);
 
 
     public boolean saveRoom(RoomDto dto) {
         openSession();
-        Room save = roomdao.save(session, new Room(dto.getRoomId(), dto.getRoomType(), dto.getKeyMoney(), dto.getRoomQty()));
+        Room save = null;
+        try {
+            save = roomdao.save(session, new Room(dto.getRoomId(), dto.getRoomType(), dto.getKeyMoney(), dto.getRoomQty()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         closeSession();
         if (save != null) {
             return true;
@@ -31,11 +41,16 @@ public class RoomBoImpl implements RoomBO {
 
     public List<RoomDto> getAllRoom() {
         openSession();
-        List<RoomDto> list = roomdao.getAll(session).stream().map(r -> new RoomDto(
-                r.getRoom_id(),
-                r.getRoom_type(),
-                r.getKeyMoney(),
-                r.getRoom_qty())).collect(Collectors.toList());
+        List<RoomDto> list = null;
+        try {
+            list = roomdao.getAll(session).stream().map(r -> new RoomDto(
+                    r.getRoom_id(),
+                    r.getRoom_type(),
+                    r.getKeyMoney(),
+                    r.getRoom_qty())).collect(Collectors.toList());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         closeSession();
         for (RoomDto dto : list) {
             System.out.println(dto);

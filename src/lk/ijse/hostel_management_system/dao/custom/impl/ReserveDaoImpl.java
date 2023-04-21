@@ -18,9 +18,6 @@ public class ReserveDaoImpl implements ReserveDao {
     public List<Reserve> getAll(Session session) throws SQLException {
         Query query= session.createQuery("from  reserve");
         List <Reserve>list = query.list();
-        for (Reserve r : list) {
-            System.out.println(r.getRoom().getRoom_id());
-        }
         return list;
     }
 

@@ -1,5 +1,9 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
+import lk.ijse.hostel_management_system.dao.DAOFactory;
+import lk.ijse.hostel_management_system.dao.DAOType;
+import lk.ijse.hostel_management_system.dao.SuperDao;
+import lk.ijse.hostel_management_system.dao.custom.StudentDao;
 import lk.ijse.hostel_management_system.dao.custom.impl.StudentDaoImpl;
 import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.entity.Student;
@@ -16,11 +20,11 @@ public class StudentBoImpl {
     Session session;
     Transaction transaction;
 
-
-    StudentDaoImpl studentDao = new StudentDaoImpl();
+    StudentDao studentDao = (StudentDao) DAOFactory.getInstance().getDao(DAOType.STUDENT);
 
     public boolean saveStudent(StudentDto dto) throws SQLException {
         openSession();
+        StudentDao studentDao = (StudentDao) DAOFactory.getInstance().getDao(DAOType.STUDENT);
         Student save = studentDao.save(session, new Student(
                 dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender(), dto.getStudent_contact()
         ));
@@ -28,9 +32,10 @@ public class StudentBoImpl {
         return save != null ? true : false;
     }
 
-    public List<StudentDto> getAllStudent() {
+    public List<StudentDto> getAllStudent() throws SQLException {
         openSession();
-        final List<StudentDto> list = studentDao.getAll(session).stream().map(c -> new StudentDto(
+        final List<StudentDto> list;
+        list = studentDao.getAll(session).stream().map(c -> new StudentDto(
                 c.getStudentId(),
                 c.getStudent_name(),
                 c.getStudent_address(),
@@ -44,7 +49,7 @@ public class StudentBoImpl {
         return list;
     }
 
-    public boolean updateStudent(StudentDto dto) {
+    public boolean updateStudent(StudentDto dto) throws SQLException {
         openSession();
         Student update = studentDao.update(session, new Student(dto.getStudentId(), dto.getStudent_name(), dto.getStudent_address(), dto.getDob(), dto.getGender()
                 , dto.getStudent_contact()));
@@ -52,7 +57,7 @@ public class StudentBoImpl {
         return update != null ? true : false;
     }
 
-    public boolean deleteStudent(String id){
+    public boolean deleteStudent(String id) throws SQLException {
         openSession();
         boolean delete = studentDao.delete(session, id);
         closeSession();

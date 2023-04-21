@@ -1,7 +1,11 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
 import lk.ijse.hostel_management_system.bo.SuperBO;
+import lk.ijse.hostel_management_system.dao.DAOFactory;
+import lk.ijse.hostel_management_system.dao.DAOType;
+import lk.ijse.hostel_management_system.dao.SuperDao;
 import lk.ijse.hostel_management_system.dao.custom.ReserveDao;
+import lk.ijse.hostel_management_system.dao.custom.RoomDao;
 import lk.ijse.hostel_management_system.dao.custom.StudentDao;
 import lk.ijse.hostel_management_system.dao.custom.impl.ReserveDaoImpl;
 import lk.ijse.hostel_management_system.dao.custom.impl.RoomDaoImpl;
@@ -25,24 +29,28 @@ import java.util.stream.Collectors;
 public class ReserveBoImpl implements SuperBO {
     Session session;
     Transaction transaction;
-    StudentDao studentDao = new StudentDaoImpl();
-    RoomDaoImpl roomDao = new RoomDaoImpl();
-    ReserveDao reserveDao = new ReserveDaoImpl();
+
+    StudentDao studentDao = (StudentDao) DAOFactory.getInstance().getDao(DAOType.STUDENT);
+    RoomDao roomDao = (RoomDao) DAOFactory.getInstance().getDao(DAOType.ROOM);
+    ReserveDao reserveDao = (ReserveDao) DAOFactory.getInstance().getDao(DAOType.RESERVE);
 
     public List<String> getStudentId() {
+
         return studentDao.getStudentId();
     }
 
     public ReserveDto saveReserve(ReserveDto dto) throws SQLException {
         openSession();
         ReserveDaoImpl reserveDao = new ReserveDaoImpl();
+
+
         Room room1 = roomDao.search(session, dto.getRoom().getRoomId());
         Student student = new Student();
         student.setStudentId(dto.getStudent().getStudentId());
         Reserve save = reserveDao.save(session, new Reserve(dto.getReserve_Id(), dto.getStart_Date(),
-                Date.valueOf(String.valueOf((dto.getReserveDate()))),dto.getStatus(), student, room1));
+                Date.valueOf(String.valueOf((dto.getReserveDate()))), dto.getStatus(), student, room1));
         if (save != null) {
-            room1.setRoom_qty(room1.getRoom_qty()-1);
+            room1.setRoom_qty(room1.getRoom_qty() - 1);
             closeSession();
         } else {
             transaction.rollback();
@@ -60,6 +68,7 @@ public class ReserveBoImpl implements SuperBO {
 
     public List<ReserveDto> getAllReserve() throws SQLException {
         openSession();
+
         List<ReserveDto> list = reserveDao.getAll(session).stream().map(g -> new ReserveDto(
                 g.getReserve_Id(),
                 g.getStart_Date(),
@@ -70,7 +79,7 @@ public class ReserveBoImpl implements SuperBO {
         )).collect(Collectors.toList());
         closeSession();
         for (ReserveDto reserve : list) {
-          System.out.println(reserve.getReserveDate());
+
         }
         return list;
     }

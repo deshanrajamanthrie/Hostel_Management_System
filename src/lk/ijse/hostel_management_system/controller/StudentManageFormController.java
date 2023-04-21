@@ -61,7 +61,12 @@ public class StudentManageFormController {
             tblStudent.getItems().clear();
         }
         StudentBoImpl studentbo = new StudentBoImpl();
-        List<StudentDto> allStudent = studentbo.getAllStudent();
+        List<StudentDto> allStudent = null;
+        try {
+            allStudent = studentbo.getAllStudent();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         for (StudentDto dto : allStudent) {
             Button btn = new Button("Remove Student");
@@ -79,6 +84,7 @@ public class StudentManageFormController {
             );
         }
     }
+
     public void SaveOnAction(ActionEvent actionEvent) {
         StudentBoImpl studentBo = new StudentBoImpl();
         //String s = studentBo.genarateIdStudent();
@@ -106,8 +112,13 @@ public class StudentManageFormController {
     }
 
     public void UpdateOnAction(ActionEvent actionEvent) {
-        boolean b = studentbo.updateStudent(new StudentDto(txtStudentId.getText(), txtStudentName.getText(), txtstudentadress.getText()
-                , txtDob.getText(), genderspId.getText(), txtContactNo.getText()));
+        boolean b = false;
+        try {
+            b = studentbo.updateStudent(new StudentDto(txtStudentId.getText(), txtStudentName.getText(), txtstudentadress.getText()
+                    , txtDob.getText(), genderspId.getText(), txtContactNo.getText()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         if (b == true) {
             new Alert(Alert.AlertType.INFORMATION, "Updated!").show();
             initialize();
@@ -122,7 +133,12 @@ public class StudentManageFormController {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
-        boolean isdeleted = studentbo.deleteStudent(txtStudentId.getText());
+        boolean isdeleted = false;
+        try {
+            isdeleted = studentbo.deleteStudent(txtStudentId.getText());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         if (isdeleted == true) {
             new Alert(Alert.AlertType.CONFIRMATION, "Delete Successed").show();
             initialize();

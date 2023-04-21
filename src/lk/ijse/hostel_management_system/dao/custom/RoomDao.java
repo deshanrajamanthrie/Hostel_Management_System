@@ -6,4 +6,5 @@ import org.hibernate.Session;
 
 public interface RoomDao extends CrudDao<Room,String> {
  //   String genarateId(Session session);
+ public Room search(Session session, String id);
 }
