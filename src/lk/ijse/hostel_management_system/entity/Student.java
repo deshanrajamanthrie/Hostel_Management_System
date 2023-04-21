@@ -1,8 +1,7 @@
 package lk.ijse.hostel_management_system.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lk.ijse.hostel_management_system.dto.StudentDto;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,9 +9,11 @@ import java.util.List;
 
 
 @NoArgsConstructor
-@Data
+@ToString
+@Getter
+@Setter
 @Entity(name = "student")
-public class Student {
+public class Student  {
     @Id
     private String studentId;
     private String student_name;
@@ -20,10 +21,9 @@ public class Student {
     private String dob;
     private String gender;
     private String student_contact;
-
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,targetEntity = Reserve.class)
-    private List<Reserve>rsList;
-
+    @ToString.Exclude
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, targetEntity = Reserve.class)
+    private List<Reserve> rsList;
 
 
     public Student(String studentId, String student_name, String student_address, String dob, String gender, String student_contact) {

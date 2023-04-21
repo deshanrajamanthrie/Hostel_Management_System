@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface CrudDao<T, Id> {
+public interface CrudDao<T, Id> extends SuperDao{
 
     T save(Session session, T entitie) throws SQLException;
 

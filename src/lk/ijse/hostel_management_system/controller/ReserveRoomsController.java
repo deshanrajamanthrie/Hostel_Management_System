@@ -3,18 +3,17 @@ package lk.ijse.hostel_management_system.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.hostel_management_system.bo.custom.impl.ReserveBoImpl;
 import lk.ijse.hostel_management_system.bo.custom.impl.RoomBoImpl;
 import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
 import lk.ijse.hostel_management_system.dto.ReserveDto;
 import lk.ijse.hostel_management_system.dto.RoomDto;
 import lk.ijse.hostel_management_system.dto.StudentDto;
-import lk.ijse.hostel_management_system.entity.Student;
-import org.hibernate.annotations.common.util.StringHelper;
+import lk.ijse.hostel_management_system.tm.ReserveTM;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -38,7 +37,7 @@ public class ReserveRoomsController {
     public DatePicker datepicker;
     public Label txtgetTime;
     public JFXComboBox<String> cmbStatus;
-    public TableView<ReserveDto> tblReserve;
+    public TableView<ReserveTM> tblReserve;
     public TableColumn colReserveId;
     public TableColumn colStartdate;
     public TableColumn colReservedate;
@@ -51,25 +50,52 @@ public class ReserveRoomsController {
     StudentBoImpl studentBo = new StudentBoImpl();
     RoomBoImpl roomBo = new RoomBoImpl();
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         setStatus();
         dateSet();
-        //   setRoomDetail();
         setStudentIdAndRoomId();
         cmbStId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
                 setStudentDetail((String) newValue));
 
         txtRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
                 setRoomDetail((String) newValue));
-
+        colReserveId.setCellValueFactory(new PropertyValueFactory<>("reserveId"));
+        colStartdate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        colReservedate.setCellValueFactory(new PropertyValueFactory<ReserveTM, LocalDate>("reserveDate"));
+        colstatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
+        colStudentid.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        Operator.setCellValueFactory(new PropertyValueFactory<>("button"));
+        getAllReservation();
     }
-
     public void setStatus() {
         ObservableList<String> statusList = FXCollections.observableArrayList();
         statusList.add("Paid");
         statusList.add("None Paid");
         cmbStatus.setItems(statusList);
+    }
 
+    private void getAllReservation() throws SQLException {
+        if (tblReserve.getItems().size() > 0) {
+            tblReserve.getItems().clear();
+        }
+        List<ReserveDto> allReserve = reserveBo.getAllReserve();
+        for (ReserveDto r : allReserve) {
+            System.out.println(r.getReserveDate());
+            Button button = new Button("Remove Reserve");
+            tblReserve.getItems().add(new ReserveTM(r.getReserve_Id(), r.getStart_Date(),
+                    r.getReserveDate().toLocalDate(), r.getStatus(), r.getStudent().getStudentId(), r.getRoom().getRoomId(), button));
+            button.setOnAction(event -> {
+                        final int index = tblReserve.getSelectionModel().getSelectedIndex();
+                        for (int i = 0; i < 100; i++) {
+                            if (i == index) {
+                                tblReserve.getItems().remove(i);
+                            }
+                        }
+                    }
+            );
+        }
+        // System.out.println("Reserve data : "+allReserve);
     }
 
     private void dateSet() {
@@ -84,7 +110,7 @@ public class ReserveRoomsController {
         ObservableList<String> stIdList = FXCollections.observableArrayList();
         ObservableList<String> roomList = FXCollections.observableArrayList();
         for (RoomDto r : allroom) {
-            roomList.add(r.getRoom_id());
+            roomList.add(r.getRoomId());
         }
         for (StudentDto s : allStudent1) {
             stIdList.add(s.getStudentId());
@@ -106,10 +132,10 @@ public class ReserveRoomsController {
 
     private void setRoomDetail(String selectedRoomId) {
         for (RoomDto r : allroom) {
-            if (r.getRoom_id().equals(txtRoomId.getValue())) {
-                txtRoomType.setText(r.getRoom_type());
-                txtRoomAvailable.setText(String.valueOf(r.getRoom_qty()));
-                txtKeymoney.setText(String.valueOf(r.getKeymoney()));
+            if (r.getRoomId().equals(txtRoomId.getValue())) {
+                txtRoomType.setText(r.getRoomType());
+                txtRoomAvailable.setText(String.valueOf(r.getRoomQty()));
+                txtKeymoney.setText(String.valueOf(r.getKeyMoney()));
             }
 
         }
@@ -121,12 +147,12 @@ public class ReserveRoomsController {
             ReserveDto reserveDto = new ReserveDto();
             reserveDto.setReserve_Id(s);
             reserveDto.setStart_Date(txtgetTime.getText());
-            reserveDto.setReserve_Date(datepicker.getValue());
+            reserveDto.setReserveDate(java.sql.Date.valueOf(datepicker.getValue()));
             reserveDto.setStatus(cmbStatus.getValue());
             StudentDto studentDto = new StudentDto();
             studentDto.setStudentId(cmbStId.getValue());
             RoomDto roomDto = new RoomDto();
-            roomDto.setRoom_id(txtRoomId.getValue());
+            roomDto.setRoomId(txtRoomId.getValue());
             reserveDto.setRoom(roomDto);
             reserveDto.setStudent(studentDto);
             reserveBo.saveReserve(reserveDto);

@@ -22,11 +22,18 @@ public class Reserve {
     private Date reserve_Date;//Date
     private String status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "studentId")
     private Student student;//student_reserver
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roomId")
     private Room room;
 }
+/*private String reserveId;
+    private String start_Date;
+    private Date reserve_Date;
+    private String status;
+    private Student student;
+    private Room room;
+    private Button button;*/

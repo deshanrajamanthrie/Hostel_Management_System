@@ -16,7 +16,12 @@ public class ReserveDaoImpl implements ReserveDao {
 
     @Override
     public List<Reserve> getAll(Session session) throws SQLException {
-        return null;
+        Query query= session.createQuery("from  reserve");
+        List <Reserve>list = query.list();
+        for (Reserve r : list) {
+            System.out.println(r.getRoom().getRoom_id());
+        }
+        return list;
     }
 
     @Override

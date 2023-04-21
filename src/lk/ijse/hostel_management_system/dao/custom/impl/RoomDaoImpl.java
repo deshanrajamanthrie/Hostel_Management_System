@@ -11,21 +11,22 @@ import java.util.List;
 
 public class RoomDaoImpl implements RoomDao {
 
-    public Room save(Session session,Room entity){
-         session.save(entity);
+    public Room save(Session session, Room entity) {
+        session.save(entity);
         return entity;
     }
 
 
-    public List<Room>getAll(Session session){
+    public List<Room> getAll(Session session) {
         Query query = session.createQuery("FROM room ");
         List<Room> list = query.list();
         return list;
 
 
     }
-    public Room search(Session session,String id){
-      return   session.get(Room.class,id);
+
+    public Room search(Session session, String id) {
+        return session.get(Room.class, id);
     }
 
     @Override
@@ -38,16 +39,7 @@ public class RoomDaoImpl implements RoomDao {
     public boolean delete(Session session, String s) throws SQLException {
         Room room = session.get(Room.class, s);
         session.delete(room);
-        return room!=null;
+        return room != null;
 
     }
-
-
-  /*  @Override
-    public String genarateId(Session session) {
-        Query query = session.createQuery("from  student  order by studentId desc ");
-        query.setCacheable(true);
-        List<Student> rsList = query.getResultList();
-        return rsList.size()==0?null:rsList.get(0).getStudentId();
-    }*/
 }

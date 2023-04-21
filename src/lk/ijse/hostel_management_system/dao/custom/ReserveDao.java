@@ -6,5 +6,5 @@ import org.hibernate.Session;
 
 public interface ReserveDao extends CrudDao<Reserve,String> {
 
-    public String genarateId(Session session);
+     String genarateId(Session session);
 }

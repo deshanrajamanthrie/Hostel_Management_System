@@ -1,5 +1,6 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
+import lk.ijse.hostel_management_system.bo.SuperBO;
 import lk.ijse.hostel_management_system.dao.custom.ReserveDao;
 import lk.ijse.hostel_management_system.dao.custom.StudentDao;
 import lk.ijse.hostel_management_system.dao.custom.impl.ReserveDaoImpl;
@@ -15,15 +16,13 @@ import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import lk.ijse.hostel_management_system.util.GenerateId;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class ReserveBoImpl {
+public class ReserveBoImpl implements SuperBO {
     Session session;
     Transaction transaction;
     StudentDao studentDao = new StudentDaoImpl();
@@ -37,13 +36,13 @@ public class ReserveBoImpl {
     public ReserveDto saveReserve(ReserveDto dto) throws SQLException {
         openSession();
         ReserveDaoImpl reserveDao = new ReserveDaoImpl();
-        Room room1 = roomDao.search(session, dto.getRoom().getRoom_id());
+        Room room1 = roomDao.search(session, dto.getRoom().getRoomId());
         Student student = new Student();
         student.setStudentId(dto.getStudent().getStudentId());
-        Reserve save = reserveDao.save(session, new Reserve(dto.getReserve_Id(), dto.getStart_Date(), Date.valueOf(dto.getReserve_Date()),
-                dto.getStatus(), student,room1));
+        Reserve save = reserveDao.save(session, new Reserve(dto.getReserve_Id(), dto.getStart_Date(),
+                Date.valueOf(String.valueOf((dto.getReserveDate()))),dto.getStatus(), student, room1));
         if (save != null) {
-            room1.setRoom_qty(room1.getRoom_qty() - 1);
+            room1.setRoom_qty(room1.getRoom_qty()-1);
             closeSession();
         } else {
             transaction.rollback();
@@ -51,17 +50,34 @@ public class ReserveBoImpl {
         }
         return save != null ? dto : null;
     }
-    public String genarateIdReservation(){
+
+    public String genarateIdReservation() {
         openSession();
         String id = reserveDao.genarateId(session);
         closeSession();
-        return GenerateId.genarateNewId("RS-",id);
+        return GenerateId.genarateNewId("RS-", id);
+    }
+
+    public List<ReserveDto> getAllReserve() throws SQLException {
+        openSession();
+        List<ReserveDto> list = reserveDao.getAll(session).stream().map(g -> new ReserveDto(
+                g.getReserve_Id(),
+                g.getStart_Date(),
+                g.getReserve_Date(),
+                g.getStatus(),
+                new StudentDto(g.getStudent().getStudentId()),
+                new RoomDto(g.getRoom().getRoom_id())
+        )).collect(Collectors.toList());
+        closeSession();
+        for (ReserveDto reserve : list) {
+          System.out.println(reserve.getReserveDate());
+        }
+        return list;
     }
 
     public void openSession() {
         session = FactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
-
     }
 
     public void closeSession() {

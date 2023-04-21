@@ -1,18 +1,18 @@
 package lk.ijse.hostel_management_system.entity;
 
+import lk.ijse.hostel_management_system.dto.RoomDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 @Entity(name = "room")
 public class Room {
     @Id
@@ -20,6 +20,7 @@ public class Room {
     private String room_type;
     private double keyMoney;
     private int room_qty;
+    @ToString.Exclude
     @OneToMany(mappedBy = "room",cascade = CascadeType.ALL,targetEntity = Reserve.class)
     List<Reserve> reserveList;
 
@@ -28,5 +29,9 @@ public class Room {
         this.room_type = room_type;
         this.keyMoney = keyMoney;
         this.room_qty = room_qty;
+    }
+
+    public Room(String room_id) {
+        this.room_id = room_id;
     }
 }

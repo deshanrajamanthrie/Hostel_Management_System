@@ -48,10 +48,10 @@ public class RoomManageFormController {
 
         tblroom.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-               txtRoomId.setText(newValue.getRoom_id());
-                cmbRoomType.setValue(newValue.getRoom_type());
-                txtkeymoney.setText(String.valueOf(newValue.getKeymoney()));
-                txtroomQty.setText(String.valueOf(newValue.getRoom_qty()));
+               txtRoomId.setText(newValue.getRoomId());
+                cmbRoomType.setValue(newValue.getRoomType());
+                txtkeymoney.setText(String.valueOf(newValue.getKeyMoney()));
+                txtroomQty.setText(String.valueOf(newValue.getRoomQty()));
             }
         });
 
@@ -66,7 +66,9 @@ public class RoomManageFormController {
 
         for (RoomDto r : allStudent) {
             Button btn = new Button("Remove Room");
-            tblroom.getItems().add(new RoomTm(r.getRoom_id(), r.getRoom_type(), r.getKeymoney(), r.getRoom_qty(), btn));
+            tblroom.getItems().add(new RoomTm(r.getRoomId(),
+                    r.getRoomType(), r.getKeyMoney(), r.getRoomQty(),
+                    btn));
 
             btn.setOnAction(event -> {
                 final int index = tblroom.getSelectionModel().getSelectedIndex();
@@ -80,8 +82,6 @@ public class RoomManageFormController {
         }
 
     }
-
-
     public void cmbTypeListner() {
         ObservableList<String> cmbList = FXCollections.observableArrayList();
         cmbList.add("Non-AC");
@@ -109,12 +109,10 @@ public class RoomManageFormController {
         } else {
             new Alert(Alert.AlertType.NONE, "Try Again").show();
         }
-
-
     }
-
     public void roomUpdateonAction(ActionEvent actionEvent) throws SQLException {
-        boolean isUpdated = roomBo.updateRoom(new RoomDto(cmbRoomId.getValue(), cmbRoomType.getValue(), Double.parseDouble(txtkeymoney.getText()
+        boolean isUpdated = roomBo.updateRoom(new RoomDto(txtRoomId.getText(),
+                cmbRoomType.getValue(), Double.parseDouble(txtkeymoney.getText()
         ), Integer.parseInt(txtroomQty.getText())));
         if (isUpdated == true) {
             new Alert(Alert.AlertType.CONFIRMATION, "Update Succesed!").show();

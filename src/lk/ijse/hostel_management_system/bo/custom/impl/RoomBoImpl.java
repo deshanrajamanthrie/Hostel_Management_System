@@ -1,10 +1,9 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
+import lk.ijse.hostel_management_system.bo.custom.RoomBO;
 import lk.ijse.hostel_management_system.dao.custom.impl.RoomDaoImpl;
 import lk.ijse.hostel_management_system.dto.RoomDto;
-import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.entity.Room;
-import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -12,9 +11,8 @@ import org.hibernate.Transaction;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class RoomBoImpl {
+public class RoomBoImpl implements RoomBO {
     Session session;
     Transaction transaction;
     RoomDaoImpl roomdao = new RoomDaoImpl();
@@ -22,7 +20,7 @@ public class RoomBoImpl {
 
     public boolean saveRoom(RoomDto dto) {
         openSession();
-        Room save = roomdao.save(session, new Room(dto.getRoom_id(), dto.getRoom_type(), dto.getKeymoney(), dto.getRoom_qty()));
+        Room save = roomdao.save(session, new Room(dto.getRoomId(), dto.getRoomType(), dto.getKeyMoney(), dto.getRoomQty()));
         closeSession();
         if (save != null) {
             return true;
@@ -54,7 +52,7 @@ public class RoomBoImpl {
 
     public boolean updateRoom(RoomDto dto) throws SQLException {
         openSession();
-        Room update = roomdao.update(session, new Room( dto.getRoom_id(),dto.getRoom_type(), dto.getKeymoney(),dto.getRoom_qty()));
+        Room update = roomdao.update(session, new Room( dto.getRoomId(),dto.getRoomType(), dto.getKeyMoney(),dto.getRoomQty()));
         System.out.println(update);
         closeSession();
         return update != null ? true : false;

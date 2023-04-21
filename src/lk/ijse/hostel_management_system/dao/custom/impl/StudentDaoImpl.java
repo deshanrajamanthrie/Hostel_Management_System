@@ -34,29 +34,21 @@ public class StudentDaoImpl implements StudentDao {
 
     }
 
-    public List<Student> getStudentDetail(Session session, String id) {
-        Query query = session.createQuery("FROM student WHERE studentId=:studentId");
-        query.setParameter("studentId", id);
-        System.out.println("why" + query);
-        List<Student> list = query.list();
-        return list;
-    }
-
-    public List<String>  getStudentId() {            //get Only Id
+    public List<String> getStudentId() {            //get Only Id
         Session session = FactoryConfiguration.getInstance().getSession();
         String hql = "SELECT studentId FROM student";
         Query query = session.createQuery(hql);
         List<String> list = query.list();
         return list;
     }
+
     @Override
     public String genarateId(Session session) {
         Query query = session.createQuery("from  student  order by studentId desc ");
         query.setCacheable(true);
         List<Student> rsList = query.getResultList();
-        return rsList.size()==0?null:rsList.get(0).getStudentId();
+        return rsList.size() == 0 ? null : rsList.get(0).getStudentId();
     }
-
 
 
 }

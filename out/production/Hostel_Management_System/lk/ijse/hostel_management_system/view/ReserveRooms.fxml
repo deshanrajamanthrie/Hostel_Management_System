@@ -74,21 +74,21 @@
          </font>
       </JFXTextField>
       <Separator layoutX="1201.0" layoutY="295.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="371.0" onAction="#AddToCartOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="ADD TO CART" textFill="WHITE" />
       <DatePicker fx:id="datepicker" layoutX="1442.0" layoutY="295.0" prefHeight="37.0" prefWidth="218.0" promptText="Reserve Date" style="-fx-background-color: blue;" />
-      <TableView layoutX="79.0" layoutY="471.0" prefHeight="396.0" prefWidth="1587.0">
+      <TableView fx:id="tblReserve" layoutX="79.0" layoutY="471.0" prefHeight="425.0" prefWidth="1587.0">
         <columns>
-          <TableColumn prefWidth="130.0" text="Room ID" />
-          <TableColumn prefWidth="229.0" text="Room Type" />
-            <TableColumn prefWidth="221.0" text="Reserve Rooms(qty)" />
-            <TableColumn prefWidth="260.0" text="KeyMoney(LKR)" />
-            <TableColumn prefWidth="264.0" text="Paing Amount" />
-            <TableColumn prefWidth="255.0" text="Balance (LKR)" />
-            <TableColumn prefWidth="227.0" text="Operator" />
+          <TableColumn fx:id="colReserveId" prefWidth="130.0" text="Reserve ID" />
+          <TableColumn fx:id="colStartdate" prefWidth="229.0" text="Start Date" />
+            <TableColumn fx:id="colReservedate" prefWidth="221.0" text="Reserve Date" />
+            <TableColumn fx:id="colstatus" prefWidth="260.0" text="Status" />
+            <TableColumn fx:id="colRoomId" prefWidth="264.0" text="Room ID" />
+            <TableColumn fx:id="colStudentid" prefWidth="255.0" text="Student ID" />
+            <TableColumn fx:id="Operator" prefWidth="227.0" text="Operator" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1522.0" layoutY="884.0" onAction="#placeOrderOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1516.0" layoutY="373.0" onAction="#placeOrderOnAction" prefHeight="37.0" prefWidth="146.0" ripplerFill="#ee2222" style="-fx-background-color: #251C6E;" text="Place Order" textFill="WHITE" />
       <Label fx:id="txtgetTime" layoutX="1312.0" layoutY="28.0" opacity="0.0" prefHeight="45.0" prefWidth="134.0" text="12:13:26 AM" />
       <JFXComboBox fx:id="cmbStatus" labelFloat="true" layoutX="1249.0" layoutY="295.0" prefHeight="37.0" prefWidth="153.0" promptText="Status" unFocusColor="#090c6f" />
+      <Label layoutX="1595.0" layoutY="907.0" text="Vertion 1.01.1" />
    </children>
 </AnchorPane>
