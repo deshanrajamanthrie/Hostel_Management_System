@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -19,14 +22,13 @@ import java.util.Optional;
 public class LoginFormController {
 
     public AnchorPane context;
-
-    public PasswordField txtpasseword;
     public TextField txtemail;
+    public PasswordField txtPasseword;
 
 
     public void loginOnAction(ActionEvent actionEvent) throws IOException {
         String emial = txtemail.getText().toLowerCase();
-        String passeword = txtpasseword.getText().trim();
+        String passeword = txtPasseword.getText().trim();
         Optional<User> getSelected = Tmdatabase.usertable.stream().filter(e -> e.getEmail().equals(emial)).findFirst();  // Convert to Stream
         if (getSelected.isPresent()) {
             if (new PassewordManage().chekpasseword(passeword, getSelected.get().getPasseword())) {
@@ -59,4 +61,7 @@ public class LoginFormController {
         stage.setTitle("SignUp_Form");
         stage.show();
     }
+
+
+
 }

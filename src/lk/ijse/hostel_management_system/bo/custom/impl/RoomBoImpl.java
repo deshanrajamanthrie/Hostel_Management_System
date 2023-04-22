@@ -39,18 +39,15 @@ public class RoomBoImpl implements RoomBO {
         }
     }
 
-    public List<RoomDto> getAllRoom() {
+    public List<RoomDto> getAllRoom() throws SQLException {
         openSession();
-        List<RoomDto> list = null;
-        try {
-            list = roomdao.getAll(session).stream().map(r -> new RoomDto(
+
+         List<RoomDto>   list = roomdao.getAll(session).stream().map(r -> new RoomDto(
                     r.getRoom_id(),
                     r.getRoom_type(),
                     r.getKeyMoney(),
                     r.getRoom_qty())).collect(Collectors.toList());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
         closeSession();
         for (RoomDto dto : list) {
             System.out.println(dto);
@@ -62,6 +59,7 @@ public class RoomBoImpl implements RoomBO {
         openSession();
         Room search = roomdao.search(session, id);
         closeSession();
+        System.out.println(search);
         return search;
     }
 

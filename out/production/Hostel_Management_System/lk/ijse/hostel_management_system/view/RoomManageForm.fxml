@@ -43,7 +43,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="1132.0" layoutY="272.0" onAction="#roomSaveOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="1001.0" layoutY="272.0" onAction="#roomSaveOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #3C40C6;" text="SAVE" textFill="WHITE" />
       <JFXButton buttonType="RAISED" layoutX="1254.0" layoutY="272.0" onAction="#roomUpdateonAction" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: #1DD1A1;" text="UPDATE" textFill="#f2f2f2" />
       <JFXButton buttonType="RAISED" layoutX="1377.0" layoutY="272.0" onAction="#roomDeleteOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #BE1E24;" text="DELETE" textFill="WHITE" />
       <ImageView fitHeight="176.0" fitWidth="164.0" layoutX="1483.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -80,10 +80,11 @@
             </ColorAdjust>
          </effect>
       </JFXComboBox>
-      <JFXTextField fx:id="txtRoomId" focusColor="#ae1c1c" labelFloat="true" layoutX="197.0" layoutY="163.0" prefHeight="37.0" prefWidth="209.0" promptText="Room Id">
+      <JFXTextField fx:id="txtRoomId" focusColor="#ae1c1c" labelFloat="true" layoutX="197.0" layoutY="163.0" onAction="#roomIdOnaction" prefHeight="37.0" prefWidth="209.0" promptText="Room Id">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="1127.0" layoutY="272.0" onAction="#roomSearchOnAction" prefHeight="37.0" prefWidth="89.0" style="-fx-background-color: #F68A1F;" text="SEARCH" textFill="WHITE" />
    </children>
 </AnchorPane>

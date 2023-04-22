@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public interface RoomBO extends SuperBO {
     boolean saveRoom(RoomDto dto);
 
-    List<RoomDto> getAllRoom();
+    List<RoomDto> getAllRoom() throws SQLException;
 
     Room searchRoom(String id);
 

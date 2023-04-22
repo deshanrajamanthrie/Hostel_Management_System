@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 public interface StudentBO extends SuperBO {
     boolean saveStudent(StudentDto dto) throws SQLException;
 
-    List<StudentDto> getAllStudent();
+    List<StudentDto> getAllStudent() throws SQLException;
 
-    boolean updateStudent(StudentDto dto);
+    boolean updateStudent(StudentDto dto) throws SQLException;
 
-    boolean deleteStudent(String id);
+    boolean deleteStudent(String id) throws SQLException;
 
     String genarateIdStudent();
 }

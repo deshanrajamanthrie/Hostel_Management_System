@@ -1,6 +1,7 @@
 package lk.ijse.hostel_management_system.bo.custom.impl;
 
 import lk.ijse.hostel_management_system.bo.SuperBO;
+import lk.ijse.hostel_management_system.bo.custom.ReserveBO;
 import lk.ijse.hostel_management_system.dao.DAOFactory;
 import lk.ijse.hostel_management_system.dao.DAOType;
 import lk.ijse.hostel_management_system.dao.SuperDao;
@@ -26,7 +27,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ReserveBoImpl implements SuperBO {
+public class ReserveBoImpl implements ReserveBO {
     Session session;
     Transaction transaction;
 

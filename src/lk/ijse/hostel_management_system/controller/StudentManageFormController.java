@@ -4,8 +4,13 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.hostel_management_system.bo.BOFactory;
+import lk.ijse.hostel_management_system.bo.BOTypes;
+import lk.ijse.hostel_management_system.bo.SuperBO;
+import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.bo.custom.impl.RoomBoImpl;
 import lk.ijse.hostel_management_system.bo.custom.impl.StudentBoImpl;
+import lk.ijse.hostel_management_system.dao.DAOType;
 import lk.ijse.hostel_management_system.dto.StudentDto;
 import lk.ijse.hostel_management_system.tm.StudentTm;
 
@@ -30,7 +35,8 @@ public class StudentManageFormController {
     public TableColumn colcontact;
     public TableColumn coloperator;
 
-    StudentBoImpl studentbo = new StudentBoImpl();
+    StudentBO studentbo = (StudentBO) BOFactory.getInstances().getBo(BOTypes.STUDENT);
+    // StudentBoImpl studentbo = new StudentBoImpl();
 
     public void initialize() {
         getallStudents();
@@ -60,7 +66,6 @@ public class StudentManageFormController {
         if (tblStudent.getItems().size() >= 0) {
             tblStudent.getItems().clear();
         }
-        StudentBoImpl studentbo = new StudentBoImpl();
         List<StudentDto> allStudent = null;
         try {
             allStudent = studentbo.getAllStudent();
@@ -86,8 +91,6 @@ public class StudentManageFormController {
     }
 
     public void SaveOnAction(ActionEvent actionEvent) {
-        StudentBoImpl studentBo = new StudentBoImpl();
-        //String s = studentBo.genarateIdStudent();
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
         String address = txtstudentadress.getText();

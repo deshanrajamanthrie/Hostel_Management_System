@@ -14,10 +14,11 @@ public class RoomDto  {
     private String roomId;
     private String roomType;
     private double keyMoney;
+    private int roomQty;
 
     public RoomDto(String roomId) {
         this.roomId = roomId;
     }
 
-    private int roomQty;
+
 }
