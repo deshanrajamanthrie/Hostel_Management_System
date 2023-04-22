@@ -106,12 +106,11 @@
                   <TableColumn fx:id="coloperator" prefWidth="132.0" text="Operator" />
               </columns>
             </TableView>
-            <TableView fx:id="tblPaid" layoutX="527.0" layoutY="83.0" prefHeight="420.0" prefWidth="633.0">
+            <TableView fx:id="tblPaid" layoutX="527.0" layoutY="83.0" prefHeight="420.0" prefWidth="608.0">
               <columns>
-                <TableColumn fx:id="colStId" prefWidth="108.0" text="StudenetId" />
-                <TableColumn fx:id="colstName" minWidth="0.0" prefWidth="99.0" text="StudentName" />
-                  <TableColumn fx:id="colPaid" prefWidth="141.0" text="Paid /Remain KeyMoney" />
-                  <TableColumn fx:id="colOperator2" prefWidth="281.0" text="Remove (Operator)" />
+                <TableColumn fx:id="colStId" prefWidth="141.0" text="StudenetId" />
+                  <TableColumn fx:id="colPaid" prefWidth="251.0" text="Paid /Remain KeyMoney" />
+                  <TableColumn fx:id="colOperator2" prefWidth="240.0" text="Remove (Operator)" />
               </columns>
             </TableView>
             <Label layoutX="527.0" layoutY="28.0" prefHeight="28.0" prefWidth="359.0" text="PAID OR NONE PAID STUDENTS" textFill="#140d90">
